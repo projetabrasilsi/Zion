@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="protocolosiptucomparativosflorianopolis_sc" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="814" leftMargin="14" rightMargin="14" topMargin="28" bottomMargin="28" uuid="7a5a4586-ef83-4afd-a18f-b7f2e641d1ff">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<style name="estiloCondicional">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}<$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#FFFFFF" backcolor="#FF0000" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}>$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#87CEFA" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}==$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#FFA500" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="tituloPar" class="java.lang.String"/>
+	<parameter name="lb_nTotalReg" class="java.lang.String"/>
+	<parameter name="lb_nTotalReg_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nTotalRegPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegAtual_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_vlTotAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAtual_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegSomenteAnterior" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegSomenteAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtualExistentenoAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegPermanentes_Value" class="java.lang.Integer"/>
+	<parameter name="lb_PermanenciaPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceu_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAumentouValor" class="java.lang.String"/>
+	<parameter name="lb_nRegAumentouValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAumentouValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAumentouValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifInflacao" class="java.lang.String"/>
+	<parameter name="lb_DifInflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegDiminuiValor" class="java.lang.String"/>
+	<parameter name="lb_nRegDiminuiValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegDiminuiuValorPerc_Value" class="java.lang.String"/>
+	<parameter name="lb_VlTotDiminuiValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifDeflacao" class="java.lang.String"/>
+	<parameter name="lb_DifDeflanflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegPermaneceuValor" class="java.lang.String"/>
+	<parameter name="lb_nRegPermaneceuValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegPermaneceuValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceuValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_Crescimento" class="java.lang.String"/>
+	<parameter name="lb_Crescimento_Value" class="java.lang.Integer"/>
+	<parameter name="lb_CrescimentoPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nCarteiraMais" class="java.lang.String"/>
+	<parameter name="lb_DifCorrecaoMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraDiferencaInflacao" class="java.lang.Double"/>
+	<parameter name="lb_NovosClientesMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraClientesNovos" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoA" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraMenos" class="java.lang.String"/>
+	<parameter name="lb_DifCorrecaoMenos" class="java.lang.String"/>
+	<parameter name="lb_CarteiraDiferencaDeflacao" class="java.lang.Double"/>
+	<parameter name="lb_NovosClientesMenos" class="java.lang.String"/>
+	<parameter name="lb_CarteiraClientesBaixados" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoB" class="java.lang.String"/>
+	<parameter name="lb_CarteiraResultadoFinal" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoPercentualFinal" class="java.lang.Double"/>
+	<parameter name="lb_Id" class="java.lang.String"/>
+	<parameter name="lb_Id_Value" class="java.lang.Double"/>
+	<parameter name="lb_Ultima_Alteracao" class="java.lang.String"/>
+	<parameter name="lb_Ultima_Alteracao_Value" class="java.util.Date"/>
+	<parameter name="lb_Resp_Registro" class="java.lang.String"/>
+	<parameter name="lb_Resp_Registro_Value" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_Inscricao.nInsc" class="java.lang.String"/>
+	<field name="valorAnt" class="java.lang.Double"/>
+	<field name="valorAtual" class="java.lang.Double"/>
+	<field name="diferenca" class="java.lang.Double"/>
+	<field name="percentual" class="java.lang.Double"/>
+	<variable name="V_CURRENT_PAGE_NUMBER" class="java.lang.Integer" resetType="Page" incrementType="Page">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{PAGE_NUMBER} + 1]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement style="estiloCondicional" mode="Opaque" x="0" y="2" width="802" height="34" forecolor="#FFFCFC" backcolor="#6DBCFC" uuid="af13d35e-c8d6-4264-8823-84cd6c400d2c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Sintétido de Serviços]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="339">
+			<textField>
+				<reportElement x="0" y="37" width="802" height="21" uuid="caf3408b-e050-40ac-afec-a019068e5c22"/>
+				<textElement textAlignment="Center">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tituloPar}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="515" y="55" width="287" height="93" forecolor="#000000" backcolor="#050505" uuid="45df41dc-d914-45f9-91dd-ea0f4124f110"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="297" y="54" width="205" height="93" backcolor="#70EAFA" uuid="14d3d39c-7048-46bb-a26c-d8c018bde8b7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="442" y="151" width="360" height="175" forecolor="#000000" backcolor="#F7FCFC" uuid="017fbfe0-e7e2-4e6c-bfe2-0105507b9fc9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="1" y="54" width="287" height="93" forecolor="#000000" backcolor="#050505" uuid="8b2109c0-54b0-47d1-904f-fc078d72b253"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="1" y="2" width="800" height="39" backcolor="#FAFAAF" uuid="31eaf13d-69bd-4094-b70f-1cc196f9e4c9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="1" y="151" width="430" height="175" forecolor="#000000" backcolor="#F7FCFC" uuid="93be76cb-caf3-4a0c-8b6b-52ef2f456af9"/>
+			</rectangle>
+			<textField>
+				<reportElement x="4" y="7" width="100" height="13" uuid="8a55efa7-a783-424e-9289-e175efd6a4d9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="22" width="100" height="13" uuid="d85194bd-5bc8-465c-8336-615f91f2167b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_Id_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="7" width="305" height="14" uuid="ac3c0c2d-9ab8-490e-9a03-edd057f0698a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_Resp_Registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="21" width="305" height="14" uuid="d2df0e06-65d8-4f99-8984-f7287131737d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_Resp_Registro_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="632" y="0" width="170" height="13" uuid="760a663c-7009-46c3-bc52-34e33098b8df">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{lb_Ultima_Alteracao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="632" y="14" width="170" height="13" uuid="b0836951-08d4-40b8-916f-5d7a6e6b90fe">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{lb_Ultima_Alteracao_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="334" y="82" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="34b7c913-47b9-4a58-a79f-66bee5f1b5b0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nTotalReg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="334" y="95" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="c4d2b39f-2484-4f3f-9bdb-ac19b529c34b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nTotalReg_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="334" y="108" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="97e95005-ac08-4d39-ad20-3e8b448c50aa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nTotalRegPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="6" y="76" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="b86771d5-cc25-46d0-9ef7-4b82822c4f56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAnt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="6" y="89" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="a665bc9d-4fd4-4f7c-a0af-8d39d3ab27d4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAnt_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="6" y="102" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="964f4388-4502-4d73-838c-9198716f6e7f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAntPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="6" y="115" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="0e366a33-54f9-46d7-b245-048393e08556">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotAnt_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="524" y="80" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="880fd95f-984a-4cc3-a5e2-5a5a459ef47a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegAtual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="524" y="93" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="69c8ed51-5e5b-4701-8832-11ee70144775">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegAtual_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="524" y="106" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="2fb05c62-1e91-4d88-afb9-422ae7a7c989">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegAtualPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="524" y="119" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="e440308f-b415-403f-b665-b18742a8011e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_vlTotAtual_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="145" y="76" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="88b12230-b44d-499a-9779-63dfc9296546">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAnterior}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="145" y="89" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="759419b9-d621-4a0b-a78d-4ef244fcfa33">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAnt_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="145" y="102" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="7b48c078-aff3-47a3-8023-b89db8dfae83">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAntPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="145" y="115" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="c7d75bf1-2cb9-42a2-b27b-27dba985c2f5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotSomenteAnt_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="658" y="80" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="756df5a0-3f2b-4fcd-9f41-4392c5896adf">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAtual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="658" y="93" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="4991ed4b-2166-4c94-bee6-8741ee8264d0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAtual_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="658" y="106" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="e4aba0e8-a273-4068-97d4-b281d873340d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nRegSomenteAtualPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="658" y="119" width="130" height="13" forecolor="#FFFFFF" backcolor="#5C16F2" uuid="a68b9936-679c-4e9d-82e5-69b74e8960ae">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_VlTotSomenteAtual_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="161" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="8617a97c-e581-418e-b6d3-c890f18e5fc1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAtualExistentenoAnt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="174" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="24c066fb-d070-44f7-9441-6b33efe9bde8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegPermanentes_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="187" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="c811d1c8-c4b2-4a05-b44b-d7b5b297923b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_PermanenciaPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="200" width="130" height="13" forecolor="#000000" backcolor="#5C16F2" uuid="288ccc91-e911-4368-9b76-f32d21ab3efd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotPermaneceu_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="221" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="de246bb8-b50c-4549-9b8d-6dee4e09a450">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAumentouValor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="234" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="0c7d82df-a500-42c5-801c-af9798ebc22f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAumentouValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="247" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="063ffdbd-35cf-4536-89ea-9e893da3bdc4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegAumentouValorPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="260" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="7757de59-21ac-422b-bd8f-fea43f0f9d6b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotAumentouValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="273" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="92a6f410-10a0-40f5-a835-3b1bb7376c4b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_DifInflacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="10" y="286" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="bda772f7-f6fc-4b30-9596-00a467971097">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_DifInflacao_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="221" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="fc3c71e1-7538-4ebc-9836-313b9e166ec3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegDiminuiValor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="234" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="fa69efdc-690a-4fe2-b139-552faa733a8a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegDiminuiValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="247" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="627e5fe5-7213-4fb3-b010-4e1c650fe342">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegDiminuiuValorPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="260" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="f9a9745a-bc7a-4455-bd5c-577472c2bdb4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotDiminuiValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="273" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="2856924a-339c-415f-9384-814539f92801">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_DifDeflacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="289" y="286" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="df4690df-1908-4d1d-aee3-c9a64ac45e18">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_DifDeflanflacao_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="231" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="8d165b12-e081-4e67-bd27-da5f83594cdd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegPermaneceuValor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="244" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="17dd8d97-4bf7-4fe5-8ddd-231bc9bc7b7d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegPermaneceuValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="257" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="064072bb-a0cc-4e2f-9d52-6ba9624d0eaf">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_nRegPermaneceuValorPerc_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="149" y="270" width="130" height="13" forecolor="#050505" backcolor="#5C16F2" uuid="dfe37287-a2ea-4b79-adca-39ed4af337a3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lb_VlTotPermaneceuValor_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="179" width="130" height="13" backcolor="#5C16F2" uuid="d3d4922b-af8a-431c-94f8-c3a3fa1daefa">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_nCarteiraMais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="193" width="130" height="13" backcolor="#5C16F2" uuid="07f164f6-2a53-4359-a4c1-38f6c81c1e94">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_DifCorrecaoMais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="206" width="130" height="13" backcolor="#5C16F2" uuid="c1bd9d0f-87aa-402d-8a4e-ac19d3c6272a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraDiferencaInflacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="219" width="130" height="13" backcolor="#5C16F2" uuid="9eb6d4f0-7da9-4040-a46a-f151a845fcc3">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_NovosClientesMais}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="232" width="130" height="13" backcolor="#5C16F2" uuid="da0f872e-f0d3-4e26-a5d9-9c6376096dd2">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraClientesNovos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="495" y="245" width="130" height="13" backcolor="#5C16F2" uuid="e0464f0b-b40f-4efd-adb8-b364d7e43f52">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraResultadoA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="179" width="130" height="13" backcolor="#5C16F2" uuid="d414d037-fa54-46a6-a60a-bfec7356d5a4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraMenos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="192" width="130" height="13" backcolor="#5C16F2" uuid="35b49016-da63-43fa-b963-4b31a66dd0b1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_DifCorrecaoMenos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="205" width="130" height="13" backcolor="#5C16F2" uuid="e6684ad9-fdce-4fab-b82c-9d85727582d7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraDiferencaDeflacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="218" width="130" height="13" backcolor="#5C16F2" uuid="bedfaa25-d3f2-40a1-9297-02510f527e07">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_NovosClientesMenos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="231" width="130" height="13" backcolor="#5C16F2" uuid="4cb66d87-6206-4c10-8035-4ddb5813a103">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraClientesBaixados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="640" y="245" width="130" height="13" backcolor="#5C16F2" uuid="741bc003-163d-43bc-96ae-f327b96867c7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraResultadoB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="570" y="279" width="130" height="13" backcolor="#5C16F2" uuid="e617d0b4-d856-46d2-977c-8f558886b835">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraResultadoFinal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="570" y="293" width="130" height="13" backcolor="#5C16F2" uuid="c7352680-b146-48b3-b3a7-a5e5be483827">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{lb_CarteiraResultadoPercentualFinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

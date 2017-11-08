@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="aP_Cpf_Cnpj" prefHeight="234.0" prefWidth="269.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.Login">
+   <children>
+      <Label fx:id="lb_Empresa" layoutX="14.0" layoutY="24.0" text="Empresa" />
+      <Label fx:id="lb_Usuario" layoutX="14.0" layoutY="72.0" text="Usuário" />
+      <ComboBox fx:id="cB_Empresa" editable="true" layoutX="14.0" layoutY="43.0" prefHeight="29.0" prefWidth="239.0" />
+      <ComboBox fx:id="cB_Usuario" editable="true" layoutX="15.0" layoutY="89.0" prefHeight="29.0" prefWidth="239.0" />
+      <PasswordField fx:id="psf_Senha" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="239.0" />
+      <Button fx:id="bt_Confirmar" layoutX="14.0" layoutY="188.0" mnemonicParsing="false" prefWidth="120.0" text="Confirmar" />
+      <Button fx:id="bt_Cancelar" layoutX="134.0" layoutY="188.0" mnemonicParsing="false" prefWidth="120.0" text="Cancelar" />
+      <Label fx:id="lb_Senha" layoutX="14.0" layoutY="121.0" text="Senha" />
+      
+      
+   </children>
+</AnchorPane>

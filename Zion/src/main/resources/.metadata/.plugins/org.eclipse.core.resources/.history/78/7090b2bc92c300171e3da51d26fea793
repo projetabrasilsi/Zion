@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="protocolosiptucomparativosflorianopolis_sc" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5a4586-ef83-4afd-a18f-b7f2e641d1ff">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="estiloCondicional">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}<$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#FFFFFF" backcolor="#FF0000" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}>$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#87CEFA" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}==$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#FFA500" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="tituloPar" class="java.lang.String"/>
+	<parameter name="nProt" class="java.lang.Integer"/>
+	<parameter name="lb_nTotalReg" class="java.lang.String"/>
+	<parameter name="lb_nTotalReg_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nTotalRegPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegAtual_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_vlTotAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAtual_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegSomenteAnterior" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegSomenteAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtualExistentenoAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegPermanentes_Value" class="java.lang.Integer"/>
+	<parameter name="lb_PermanenciaPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceu_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAumentouValor" class="java.lang.String"/>
+	<parameter name="lb_nRegAumentouValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAumentouValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAumentouValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifInflacao" class="java.lang.String"/>
+	<parameter name="lb_DifInflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegDiminuiValor" class="java.lang.String"/>
+	<parameter name="lb_nRegDiminuiValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_VlTotDiminuiValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifDeflacao" class="java.lang.String"/>
+	<parameter name="lb_DifDeflanflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegPermaneceuValor" class="java.lang.String"/>
+	<parameter name="lb_nRegPermaneceuValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegPermaneceuValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceuValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_Crescimento" class="java.lang.String"/>
+	<parameter name="lb_Crescimento_Value" class="java.lang.Integer"/>
+	<parameter name="lb_CrescimentoPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nCarteiraMais" class="java.lang.String"/>
+	<parameter name="lb_DifCorrecaoMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraDiferencaInflacao" class="java.lang.Double"/>
+	<parameter name="lb_NovosClientesMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraClientesNovos" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoA" class="java.lang.Double"/>
+	<parameter name="Parameter8" class="java.lang.String"/>
+	<parameter name="Parameter14" class="java.lang.String"/>
+	<parameter name="Parameter11" class="java.lang.String"/>
+	<parameter name="Parameter12" class="java.lang.String"/>
+	<parameter name="Parameter13" class="java.lang.String"/>
+	<parameter name="Parameter10" class="java.lang.String"/>
+	<parameter name="Parameter2" class="java.lang.String"/>
+	<parameter name="Parameter9" class="java.lang.String"/>
+	<parameter name="Parameter3" class="java.lang.String"/>
+	<parameter name="Parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_Inscricao.nInsc" class="java.lang.String"/>
+	<field name="valorAnt" class="java.lang.Double"/>
+	<field name="valorAtual" class="java.lang.Double"/>
+	<field name="diferenca" class="java.lang.Double"/>
+	<field name="percentual" class="java.lang.Double"/>
+	<variable name="V_CURRENT_PAGE_NUMBER" class="java.lang.Integer" resetType="Page" incrementType="Page">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{PAGE_NUMBER} + 1]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement style="estiloCondicional" mode="Opaque" x="0" y="2" width="556" height="34" forecolor="#FFFCFC" backcolor="#6DBCFC" uuid="af13d35e-c8d6-4264-8823-84cd6c400d2c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Sintétido de Serviços]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="49" width="556" height="21" uuid="e24f75b9-e98c-486c-8f3e-67103b3e8003"/>
+				<textElement textAlignment="Center">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tituloPar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="174" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="438" y="42" width="100" height="13" uuid="2fbbdc8f-fe0c-49c3-a6ab-508fe2adecaa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+ $V{PAGE_NUMBER}+" de "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="525" y="42" width="31" height="13" uuid="1396160f-7b4d-444d-9a54-71a4776856b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

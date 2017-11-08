@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="protocolosiptucomparativosflorianopolis_sc" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5a4586-ef83-4afd-a18f-b7f2e641d1ff">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="estiloCondicional">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}<$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#FFFFFF" backcolor="#FF0000" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}>$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#87CEFA" isBold="true"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{valorAnt}==$F{valorAtual}]]></conditionExpression>
+			<style mode="Opaque" forecolor="#000000" backcolor="#FFA500" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="tituloPar" class="java.lang.String"/>
+	<parameter name="lb_nTotalReg" class="java.lang.String"/>
+	<parameter name="lb_nTotalReg_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nTotalRegPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegAtual_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_vlTotAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtual_Value" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAtualPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAtual_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegSomenteAnterior" class="java.lang.String"/>
+	<parameter name="lb_nRegSomenteAnt_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegSomenteAntPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotSomenteAnt_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAtualExistentenoAnt" class="java.lang.String"/>
+	<parameter name="lb_nRegPermanentes_Value" class="java.lang.Integer"/>
+	<parameter name="lb_PermanenciaPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceu_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegAumentouValor" class="java.lang.String"/>
+	<parameter name="lb_nRegAumentouValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegAumentouValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotAumentouValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifInflacao" class="java.lang.String"/>
+	<parameter name="lb_DifInflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegDiminuiValor" class="java.lang.String"/>
+	<parameter name="lb_nRegDiminuiValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_VlTotDiminuiValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_DifDeflacao" class="java.lang.String"/>
+	<parameter name="lb_DifDeflanflacao_Value" class="java.lang.Double"/>
+	<parameter name="lb_nRegPermaneceuValor" class="java.lang.String"/>
+	<parameter name="lb_nRegPermaneceuValor_Value" class="java.lang.Integer"/>
+	<parameter name="lb_nRegPermaneceuValorPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_VlTotPermaneceuValor_Value" class="java.lang.Double"/>
+	<parameter name="lb_Crescimento" class="java.lang.String"/>
+	<parameter name="lb_Crescimento_Value" class="java.lang.Integer"/>
+	<parameter name="lb_CrescimentoPerc_Value" class="java.lang.Double"/>
+	<parameter name="lb_nCarteiraMais" class="java.lang.String"/>
+	<parameter name="lb_DifCorrecaoMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraDiferencaInflacao" class="java.lang.Double"/>
+	<parameter name="lb_NovosClientesMais" class="java.lang.String"/>
+	<parameter name="lb_CarteiraClientesNovos" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoA" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraMenos" class="java.lang.String"/>
+	<parameter name="lb_DifCorrecaoMenos" class="java.lang.String"/>
+	<parameter name="lb_CarteiraDiferencaDeflacao" class="java.lang.Double"/>
+	<parameter name="lb_NovosClientesMenos" class="java.lang.String"/>
+	<parameter name="Parameter13" class="java.lang.String"/>
+	<parameter name="lb_CarteiraClientesBaixados" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoB" class="java.lang.String"/>
+	<parameter name="lb_CarteiraResultadoFinal" class="java.lang.Double"/>
+	<parameter name="lb_CarteiraResultadoPercentualFinal" class="java.lang.Double"/>
+	<parameter name="lb_Id" class="java.lang.String"/>
+	<parameter name="lb_Id_Value" class="java.lang.Double"/>
+	<parameter name="lb_Ultima_Alteracao" class="java.lang.String"/>
+	<parameter name="lb_Ultima_Alteracao_Value" class="java.util.Date"/>
+	<parameter name="lb_Resp_Registro" class="java.lang.String"/>
+	<parameter name="lb_Resp_Registro_Value" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_Inscricao.nInsc" class="java.lang.String"/>
+	<field name="valorAnt" class="java.lang.Double"/>
+	<field name="valorAtual" class="java.lang.Double"/>
+	<field name="diferenca" class="java.lang.Double"/>
+	<field name="percentual" class="java.lang.Double"/>
+	<variable name="V_CURRENT_PAGE_NUMBER" class="java.lang.Integer" resetType="Page" incrementType="Page">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[$V{PAGE_NUMBER} + 1]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement style="estiloCondicional" mode="Opaque" x="0" y="2" width="556" height="34" forecolor="#FFFCFC" backcolor="#6DBCFC" uuid="af13d35e-c8d6-4264-8823-84cd6c400d2c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Sintétido de Serviços]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="49" width="556" height="21" uuid="e24f75b9-e98c-486c-8f3e-67103b3e8003"/>
+				<textElement textAlignment="Center">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tituloPar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="287" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="1c802cb4-1986-459e-af2c-a1ccd6320766"/>
+				<textFieldExpression><![CDATA[$P{lb_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="100" height="30" uuid="8d648fc3-aa3a-402b-85bb-a84447e79ca5"/>
+				<textFieldExpression><![CDATA[$P{lb_Id_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="2edfcb1e-2e43-4b94-a06b-d4d0b9c1d8bb"/>
+				<textFieldExpression><![CDATA[$P{lb_Resp_Registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="30" width="100" height="30" uuid="6c4787fc-cedc-49c7-9a77-b3c204c3f09e"/>
+				<textFieldExpression><![CDATA[$P{lb_Resp_Registro_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="30" uuid="ca8d21b3-c3d1-4bab-bb5a-4e0f13a8a27b"/>
+				<textFieldExpression><![CDATA[$P{lb_Id_Value}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="30" width="100" height="30" uuid="6deabaff-d465-4084-a583-070ed497a8c7"/>
+				<textFieldExpression><![CDATA[$P{lb_Ultima_Alteracao_Value}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

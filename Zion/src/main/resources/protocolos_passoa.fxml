@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="aPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1227.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.protocolos.passoa.ProtocoloController">
+	<padding>
+		<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+	</padding>
+	<children>
+		<Group fx:id="group_Pessoas" layoutX="7.0" layoutY="73.0" AnchorPane.bottomAnchor="341.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.9609375" AnchorPane.topAnchor="84.0">
+			<children>
+				<Label fx:id="lb_Total_Invalidado" layoutX="864.0" layoutY="11.0" text="Total Invalidado" />
+				<Label fx:id="lb_Resp_Registro" layoutX="9.0" layoutY="11.0" text="Responsável pelo Registro" />
+
+
+				<Label fx:id="lb_Id" layoutX="468.0" layoutY="11.0" text="Protocolo N." />
+
+				<Label fx:id="lb_Escolha_Restricao" layoutX="633.0" layoutY="59.0" text="Escolha a Restriçao" />
+				<Label fx:id="lb_Classificacao" layoutX="9.0" layoutY="59.0" text="Classificaçao do Serviço" />
+				<Label fx:id="lb_Ultima_Alteracao" layoutX="279.0" layoutY="11.0" text="Última Alteração" />
+				<Label fx:id="lb_Total_Inscricoes" layoutX="633.0" layoutY="11.0" text="Total de Inscrições" />
+				<Label fx:id="lb_Total_Valido" layoutX="758.0" layoutY="11.0" text="Total Validados" />
+				<Label fx:id="lb_Status" layoutX="814.0" layoutY="59.0" text="Status do Protocolo" />
+				<Label fx:id="lb_Status_Value" layoutX="815.0" layoutY="78.0" text="Status do Protocolo" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+
+				<Label fx:id="lb_Resp_Registro_Value" layoutX="9.0" layoutY="28.0" text="Responsavel" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Ultima_Alteracao_Value" layoutX="279.0" layoutY="28.0" text="Alteraçao" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Id_Value" layoutX="465.0" layoutY="28.0" text="Protocolo" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Total_Inscricoes_Value" layoutX="633.0" layoutY="28.0" text="Inscrições" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Total_Validado_Value" layoutX="762.0" layoutY="28.0" text="Validado" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+
+
+
+
+
+
+				<Label fx:id="lb_Total_Invalidado_Value" layoutX="864.0" layoutY="28.0" text="Invalidado" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Classificacao_Value" layoutX="9.0" layoutY="77.0" text="Responsavel" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Escolha_Restricao_Value" layoutX="633.0" layoutY="78.0" text="Alteraçao" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_Tipo_Servico_Value" layoutX="279.0" layoutY="77.0" text="Responsavel" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+
+
+
+				<Label fx:id="lb_Tipo_Servico" layoutX="279.0" layoutY="57.0" text="Escolha o Tipo de Serviço" />
+				<Label fx:id="lb_Duracao" layoutX="9.0" layoutY="109.0" text="Duraçaõ do Processo:" />
+				<Label fx:id="lb_Duracao_Value" layoutX="9.0" layoutY="127.0" prefHeight="25.0" prefWidth="936.0" text="Responsavel" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nTotalReg_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="177.0" prefHeight="25.0" prefWidth="109.0" text="00" textAlignment="CENTER" textFill="#d309cc">
+					<font>
+						<Font name="System Bold" size="14.0" />
+					</font>
+				</Label>
+
+
+
+
+
+				<Label fx:id="lb_nTotalReg" alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="159.0" prefHeight="17.0" prefWidth="109.0" text="Total de Registros" textFill="#d309cc">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nRegAnt_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="177.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#111010">
+					<font>
+						<Font name="System Bold" size="14.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nRegAnt" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="159.0" prefHeight="17.0" prefWidth="141.0" text="Total Anterior" textFill="#111010">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nRegAtual_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="177.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+					<font>
+						<Font name="System Bold" size="14.0" />
+					</font>
+				</Label>
+
+
+				<Label fx:id="lb_nRegPermanentes_Value" alignment="CENTER" layoutX="591.0" layoutY="177.0" prefHeight="25.0" prefWidth="149.0" text="00" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="14.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nRegAtualExistentenoAnt" alignment="CENTER" contentDisplay="CENTER" layoutX="591.0" layoutY="159.0" prefHeight="17.0" prefWidth="149.0" text="Pertence Anterior e Atual" textFill="#20bf0b">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+
+				</Label>
+				<Label fx:id="lb_nRegAtual" alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="159.0" prefHeight="17.0" prefWidth="141.0" text="Total Atual" textFill="#2c0bd3">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<Label fx:id="lb_nRegDiminuiValor_Value" alignment="CENTER" layoutX="897.0" layoutY="177.0" prefHeight="25.0" prefWidth="117.0" text="00" textFill="#12c3eb">
+					<font>
+						<Font name="System Bold" size="14.0" />
+					</font>
+				</Label>
+				
+				
+				
+				<Label fx:id="lb_nRegSomenteAnt_Value" alignment="CENTER" layoutX="450.0" layoutY="177.0" prefHeight="0.0" prefWidth="141.0" text="00">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <Label fx:id="lb_nRegAumentouValor" alignment="CENTER" contentDisplay="CENTER" layoutX="764.0" layoutY="159.0" prefHeight="17.0" prefWidth="112.0" text="Aumentaram Valor" textFill="#e80909">
+          <font>
+            <Font name="System Bold" size="12.0" />
+          </font>
+        </Label>
+
+        <Label fx:id="lb_nRegSomenteAtual_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="177.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <Label fx:id="lb_nRegSomenteAtual" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="159.0" prefHeight="17.0" prefWidth="141.0" text="Novos" textFill="#2c0bd3">
+          <font>
+            <Font name="System Bold" size="12.0" />
+          </font>
+        </Label>
+        <Label fx:id="lb_nRegSomenteAnterior" alignment="CENTER" layoutX="450.0" layoutY="159.0" prefHeight="17.0" prefWidth="141.0" text="Perdidos">
+          <font>
+            <Font name="System Bold" size="12.0" />
+          </font>
+        </Label>
+            <Label fx:id="lb_nRegAumentouValor_Value" alignment="CENTER" layoutX="764.0" layoutY="177.0" prefHeight="25.0" prefWidth="112.0" text="00" textFill="#e80909">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegDiminuiValor" alignment="CENTER" contentDisplay="CENTER" layoutX="897.0" layoutY="159.0" prefHeight="17.0" prefWidth="117.0" text="Diminuiram o Valor" textFill="#12c3eb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegPermaneceuValor_Value" alignment="CENTER" layoutX="1027.0" layoutY="177.0" prefHeight="25.0" prefWidth="171.0" text="00" textFill="#a9ae1f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegPermaneceuValor" alignment="CENTER" contentDisplay="CENTER" layoutX="1027.0" layoutY="159.0" prefHeight="17.0" prefWidth="171.0" text="Manteve o Valor" textFill="#a9ae1f">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegSomenteAntPerc_Value" alignment="CENTER" layoutX="450.0" layoutY="197.0" prefHeight="0.0" prefWidth="141.0" text="00">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_PermanenciaPerc_Value" alignment="CENTER" layoutX="591.0" layoutY="197.0" prefHeight="25.0" prefWidth="149.0" text="00" textFill="#20bf0b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAntPerc_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="197.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nTotalRegPerc_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="197.0" prefHeight="25.0" prefWidth="109.0" text="00" textAlignment="CENTER" textFill="#d309cc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegSomenteAtualPerc_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="197.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAtualPerc_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="197.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_Crescimento" alignment="CENTER" layoutX="229.0" layoutY="257.0" prefHeight="25.0" prefWidth="121.0" text="Crescimento" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAnt_Value11" alignment="CENTER" layoutX="127.0" layoutY="257.0" prefHeight="25.0" prefWidth="100.0" text="Permencia" textFill="#20bf0b">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nTotalReg_Value11" alignment="CENTER" layoutX="9.0" layoutY="257.0" prefHeight="25.0" prefWidth="100.0" text="Retençao" textAlignment="CENTER" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_Permanencia_Value" alignment="CENTER" layoutX="127.0" layoutY="277.0" prefHeight="25.0" prefWidth="101.0" text="00" textFill="#20bf0b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRetencao_Value" alignment="CENTER" layoutX="9.0" layoutY="277.0" prefHeight="25.0" prefWidth="100.0" text="00" textAlignment="CENTER" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_Crescimento_Value" alignment="CENTER" layoutX="229.0" layoutY="277.0" prefHeight="25.0" prefWidth="109.0" text="00" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_PermanenciaFinalPerc_Value" alignment="CENTER" layoutX="127.0" layoutY="297.0" prefHeight="25.0" prefWidth="101.0" text="00" textFill="#20bf0b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_CrescimentoPerc_Value" alignment="CENTER" layoutX="229.0" layoutY="297.0" prefHeight="25.0" prefWidth="109.0" text="00" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRetencaoPerc_Value" alignment="CENTER" layoutX="9.0" layoutY="297.0" prefHeight="25.0" prefWidth="100.0" text="00" textAlignment="CENTER" textFill="#5a0390">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="519.0" layoutY="269.0" stroke="#0f3cb9" strokeType="INSIDE" width="34.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fc0606" height="25.0" layoutX="801.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTSKYBLUE" height="25.0" layoutX="939.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9ae1f" height="25.0" layoutX="1096.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="34.0" />
+            <Label fx:id="lb_nRegAnt11" alignment="CENTER" layoutX="764.0" layoutY="292.0" prefWidth="112.0" text="Aumentou o valor" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAnt111" alignment="CENTER" layoutX="897.0" layoutY="292.0" prefHeight="17.0" prefWidth="117.0" text="Diminuiu o valor" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAnt1111" alignment="CENTER" layoutX="1027.0" layoutY="292.0" prefHeight="17.0" prefWidth="171.0" text="Valor se manteve" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAnt1" alignment="CENTER" layoutX="450.0" layoutY="292.0" prefHeight="0.0" prefWidth="165.0" text="Nao Houve Comparação" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotAnt_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="217.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_vlTotAtual_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="228.0" layoutY="217.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotSomenteAtual_Value" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="217.0" prefHeight="25.0" prefWidth="141.0" text="00" textFill="#2c0bd3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotSomenteAnt_Value" alignment="CENTER" layoutX="449.0" layoutY="220.0" prefHeight="0.0" prefWidth="141.0" text="00">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotPermaneceu_Value" alignment="CENTER" layoutX="591.0" layoutY="217.0" prefHeight="25.0" prefWidth="149.0" text="00" textFill="#20bf0b">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegAumentouValorPerc_Value" alignment="CENTER" layoutX="764.0" layoutY="197.0" prefHeight="25.0" prefWidth="112.0" text="00" textFill="#e80909">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotAumentouValor_Value" alignment="CENTER" layoutX="764.0" layoutY="217.0" prefHeight="25.0" prefWidth="112.0" text="00" textFill="#e80909">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegDiminuiValorPerc_Value" alignment="CENTER" layoutX="897.0" layoutY="197.0" prefHeight="25.0" prefWidth="117.0" text="00" textFill="#12c3eb">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotDiminuiValor_Value" alignment="CENTER" layoutX="897.0" layoutY="217.0" prefHeight="25.0" prefWidth="117.0" text="00" textFill="#12c3eb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nRegPermaneceuValorPerc_Value" alignment="CENTER" layoutX="1027.0" layoutY="197.0" prefHeight="25.0" prefWidth="171.0" text="00" textFill="#a9ae1f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_VlTotPermaneceuValor_Value" alignment="CENTER" layoutX="1027.0" layoutY="217.0" prefHeight="25.0" prefWidth="171.0" text="00" textFill="#a9ae1f">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_DifDeflanflacao_Value" alignment="CENTER" layoutX="897.0" layoutY="247.0" prefHeight="25.0" prefWidth="117.0" text="00" textFill="#12c3eb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_DifInflacao_Value" alignment="CENTER" layoutX="764.0" layoutY="247.0" prefHeight="25.0" prefWidth="112.0" text="00" textFill="#e80909">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_DifInflacao" alignment="CENTER" contentDisplay="CENTER" layoutX="764.0" layoutY="235.0" prefHeight="17.0" prefWidth="112.0" text="Dif. de Correçao" textFill="#e80909">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_DifDeflacao" alignment="CENTER" contentDisplay="CENTER" layoutX="897.0" layoutY="235.0" prefHeight="17.0" prefWidth="117.0" text="Dif. de Correçao" textFill="#12c3eb">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+        
+        
+
+
+			</children>
+		</Group>
+		<Group fx:id="group_Buttons" layoutX="3.0" layoutY="72.0">
+			<children>
+
+				<Button fx:id="bt_Inicio" layoutX="13.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Início" />
+				<Button fx:id="bt_Anterior" layoutX="122.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Anterior" />
+				<Button fx:id="bt_Proximo" layoutX="231.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Próximo" />
+				<Button fx:id="bt_Fim" layoutX="341.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" text="Fim" />
+				<Button fx:id="bt_Novo" layoutX="478.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Novo" />
+				<Button fx:id="bt_Relatorio_Sintetico" layoutX="791.0" layoutY="521.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="177.0" text="Relatório Sintetico" />
+				<Button fx:id="bt_Relatorio_Analitico" layoutX="602.0" layoutY="521.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="169.0" text="Relatório Analítico" />
+				<Button fx:id="bt_AtvDatv" layoutX="1004.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Ativ/Desat" />
+
+			</children>
+		</Group>
+		<Label fx:id="lb_Titulo" alignment="TOP_LEFT" blendMode="SRC_ATOP" contentDisplay="TOP" layoutX="52.0" layoutY="23.0" prefHeight="66.0" prefWidth="926.0" text="Protocolo" textFill="#ae0f1f" textOverrun="CENTER_ELLIPSIS" underline="true" wrapText="true" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="254.0" AnchorPane.topAnchor="18.0">
+			<font>
+				<Font name="Arial Bold" size="55.0" />
+			</font>
+			<padding>
+				<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+			</padding>
+		</Label>
+		<TableView fx:id="tV_ProtServicos_Detalhe" layoutX="16.0" layoutY="423.0" prefHeight="164.0" prefWidth="1195.0">
+			<columns>
+				<TableColumn fx:id="tC_Contador" prefWidth="66.0" text="Contador" />
+				<TableColumn fx:id="tC_Inscricao" prefWidth="187.0" text="Inscriçao" />
+				<TableColumn fx:id="tC_Data_Hora" minWidth="8.0" prefWidth="142.0" text="Data e Hora" />
+				<TableColumn fx:id="tC_Responsavel" minWidth="4.0" prefWidth="168.0" text="Responsavel" />
+				<TableColumn fx:id="tC_Valor_Anterior" prefWidth="112.0" text="Valor Anterior" />
+				<TableColumn fx:id="tC_Valor_Atual" prefWidth="105.0" text="Valor Atual" />
+				<TableColumn fx:id="tC_Diferenca" prefWidth="82.0" text="Diferença" />
+				<TableColumn fx:id="tC_Percentual" prefWidth="89.0" text="Percentual" />
+            <TableColumn fx:id="tC_Resultado" prefWidth="152.0" text="Resultado" />
+			</columns>
+		</TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#05bffa" height="232.0" layoutX="977.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="236.0" />
+      <Label fx:id="lb_nRegAumentouValor1" alignment="CENTER" contentDisplay="CENTER" layoutX="986.0" layoutY="21.0" prefHeight="27.0" prefWidth="109.0" text="(+) Carteira" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_nRegAumentouValor11" alignment="CENTER" contentDisplay="CENTER" layoutX="1107.0" layoutY="21.0" prefHeight="27.0" prefWidth="98.0" text="(-) Carteira" textFill="#e80909">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="1096.0" layoutY="6.0" orientation="VERTICAL" prefHeight="156.0" prefWidth="7.0" />
+      <Label fx:id="lb_DifInflacao1" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="48.0" prefHeight="17.0" prefWidth="112.0" text="Dif. de Correçao" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraDiferencaInflacao" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="62.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraClientesNovos" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="103.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_DifInflacao13" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="88.0" prefHeight="17.0" prefWidth="112.0" text="Novos Clientes" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraDiferencaDeflacao" alignment="CENTER" contentDisplay="CENTER" layoutX="1102.0" layoutY="62.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_DifInflacao131" alignment="CENTER" contentDisplay="CENTER" layoutX="1102.0" layoutY="88.0" prefHeight="17.0" prefWidth="112.0" text="Baixa de Cliente" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraClientesBaixados" alignment="CENTER" contentDisplay="CENTER" layoutX="1102.0" layoutY="103.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_DifInflacao11" alignment="CENTER" contentDisplay="CENTER" layoutX="1102.0" layoutY="48.0" prefHeight="17.0" prefWidth="112.0" text="Dif. de Correçao" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="981.0" layoutY="163.0" prefHeight="17.0" prefWidth="230.0" />
+      <Label fx:id="lb_CarteiraResultadoA" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="133.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#330cf5">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraResultadoB" alignment="CENTER" contentDisplay="CENTER" layoutX="1101.0" layoutY="133.0" prefHeight="17.0" prefWidth="112.0" text="00" textFill="#330cf5">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraResultadoFinal" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="172.0" prefHeight="20.0" prefWidth="220.0" text="00" textFill="#f3f40c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_CarteiraResultadoPercentualFinal" alignment="CENTER" contentDisplay="CENTER" layoutX="985.0" layoutY="202.0" prefHeight="20.0" prefWidth="220.0" text="00" textFill="#f3f40c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cB_FilterField" layoutX="1019.0" layoutY="392.0" prefHeight="29.0" prefWidth="156.0" />
+
+	</children>
+</AnchorPane>

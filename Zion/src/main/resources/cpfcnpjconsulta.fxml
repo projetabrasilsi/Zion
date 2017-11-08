@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="aP_Cpf_Cnpj" prefHeight="154.0" prefWidth="452.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.pessoas.Cpf_Cnpj_Consulta">
+   <children>
+      <Label fx:id="lb_Tipo_Pessoa" layoutX="14.0" layoutY="24.0" text="Tipo Pessoa" />
+      <Label fx:id="lb_Cpf_Cnpj" layoutX="232.0" layoutY="24.0" text="Cpf/Cnpj" />
+      <ComboBox fx:id="cB_Tipo_Pessoa" layoutX="14.0" layoutY="43.0" prefWidth="212.0" />
+      <TextField fx:id="tF_Cpf_Cnpj" layoutX="232.0" layoutY="43.0" prefHeight="25.0" prefWidth="212.0" />
+      <Button fx:id="bt_Confirmar" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" prefWidth="212.0" text="Confirmar" />
+      <Button fx:id="bt_Cancelar" layoutX="232.0" layoutY="90.0" mnemonicParsing="false" prefWidth="212.0" text="Cancelar" />
+   </children>
+</AnchorPane>

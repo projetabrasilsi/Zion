@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="ap_Pessoas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="988.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.pessoas.PessoaController">
+	<padding>
+		<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+	</padding>
+	<children>
+		<Group fx:id="group_Pessoas" layoutY="185.0" AnchorPane.bottomAnchor="222.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="196.0">
+			
+			<children>
+				<TextField fx:id="tf_Resp_Registro" editable="false" layoutX="9.0" layoutY="30.0" prefHeight="25.0" prefWidth="202.0" />
+				<TextField fx:id="tf_Ultima_Alteracao" editable="false" layoutX="214.0" layoutY="30.0" prefHeight="25.0" prefWidth="156.0" />
+				<TextField fx:id="tf_Id" editable="false" layoutX="373.0" layoutY="30.0" prefHeight="25.0" prefWidth="62.0" />				
+				<ComboBox fx:id="cb_Tipo_Pessoa" layoutX="437.0" layoutY="28.0" prefHeight="29.0" prefWidth="142.0" />
+				<TextField fx:id="tf_Cpf_Cnpj" layoutX="582.0" layoutY="30.0" prefHeight="25.0" prefWidth="168.0" />
+	
+				<TextField fx:id="tf_Rg_Inscricao_Estadual" layoutX="753.0" layoutY="30.0" prefHeight="25.0" prefWidth="223.0" />
+				<TextField fx:id="tf_Nome_Razao_Social" layoutX="9.0" layoutY="84.0" prefHeight="25.0" prefWidth="569.0" />
+				<TextField fx:id="tf_Fantasia_Apelido" layoutX="582.0" layoutY="84.0" prefHeight="25.0" prefWidth="394.0" />
+				<DatePicker fx:id="dp_Data_Nascimento_Abertura" layoutX="9.0" layoutY="124.0" prefHeight="29.0" prefWidth="262.0" />
+				<ComboBox fx:id="cb_Sexo" layoutX="272.0" layoutY="124.0" prefHeight="29.0" prefWidth="307.0" />
+				<PasswordField fx:id="psf_Senha" layoutX="582.0" layoutY="126.0" prefHeight="25.0" prefWidth="187.0" />
+				<PasswordField fx:id="psf_ConfSenha" layoutX="773.0" layoutY="126.0" prefHeight="25.0" prefWidth="202.0" />
+      			
+				
+				
+				
+      			<Label fx:id="lb_ConfSenha" layoutX="773.0" layoutY="109.0" text="Confirme a Senha" />
+      			<Label fx:id="lb_Senha" layoutX="582.0" layoutY="109.0" text="Senha" />
+				
+
+				
+				<Label fx:id="lb_Rg_Inscricao_Estadual" layoutX="753.0" layoutY="13.0" text="Rg" />
+				<Label fx:id="lb_Resp_Registro" layoutX="9.0" layoutY="11.0" text="Responsável pelo Registro" />
+				<Label fx:id="lb_Nome_Razao_Social" layoutX="9.0" layoutY="67.0" text="Nome" />
+
+				
+				<Label fx:id="lb_Id" layoutX="373.0" layoutY="13.0" text="Id" />
+
+				<Label fx:id="lb_Sexo" layoutX="272.0" layoutY="109.0" text="Sexo" />
+				
+				
+				<Label fx:id="lb_Cpf_Cnpj" layoutX="582.0" layoutY="13.0" text="CPF" />
+				<Label fx:id="lb_Data_Nascimento_Abertura" layoutX="9.0" layoutY="109.0" text="Data de Nascimento" />
+				<Label fx:id="lb_Tipo_Pessoa" layoutX="437.0" layoutY="13.0" text="Tipo Pessoa" />
+				<Label fx:id="lb_Ultima_Alteracao" layoutX="214.0" layoutY="13.0" text="Última Alteração" />
+				<Label fx:id="lb_Fantasia_Apelido" layoutX="582.0" layoutY="67.0" text="Apelido" />
+				
+			</children>
+		</Group>
+		<Group fx:id="group_Buttons" layoutX="-1.0" layoutY="-5.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0">
+			<children>
+				
+				<Button fx:id="bt_Inicio" layoutX="13.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Início" />
+				<Button fx:id="bt_Anterior" layoutX="122.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Anterior" />
+				<Button fx:id="bt_Proximo" layoutX="231.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Próximo" />
+				<Button fx:id="bt_Fim" layoutX="341.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="110.0" text="Fim" />
+				<Button fx:id="bt_Novo" layoutX="478.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Novo" />
+				<Button fx:id="bt_Salvar" layoutX="700.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Salvar" />				
+				<Button fx:id="bt_Alterar" layoutX="590.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Alterar" />
+				<Button fx:id="bt_AtvDatv" layoutX="858.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="119.0" text="Ativ/Desat" />
+				
+			</children>
+		</Group>
+      <Label fx:id="lb_Titulo" alignment="CENTER" contentDisplay="TOP" layoutX="15.0" layoutY="29.0" prefHeight="95.0" prefWidth="957.0" text="Cadastros de Pessoas" textFill="#ae0f1f" textOverrun="CENTER_ELLIPSIS" underline="true" wrapText="true" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Arial" size="47.0" />
+         </font>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </Label>
+      
+	</children>
+</AnchorPane>

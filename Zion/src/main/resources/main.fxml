@@ -9,66 +9,132 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane fx:id="bp_Principal" maxHeight="-Infinity"
-	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-	prefHeight="500.0" prefWidth="1433.0" stylesheets="@jmetro/JMetroDarkTheme.css"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="controller.outros.Menu_Principal">
+<BorderPane fx:id="bp_Principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1433.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.outros.Menu_Principal">
 	<top>
-		<MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-			BorderPane.alignment="CENTER">
+		<MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
 			<menus>
 				<Menu mnemonicParsing="false" text="Cadastros">
 					<items>
 						<Menu mnemonicParsing="false" text="Pessoas">
 							<items>
-								<MenuItem fx:id="mI_ProjetaBrasil" mnemonicParsing="false"
-									text="Projeta Brasil" />
-								<MenuItem fx:id="mI_Contratantes" mnemonicParsing="false"
-									text="Contrantes" />
-								<MenuItem fx:id="mI_Administradores_GERAL"
-									mnemonicParsing="false" text="Administradores Gerais" />
-								<MenuItem fx:id="mI_Administradores_IPTU"
-									mnemonicParsing="false" text="Administraçao de IPTU" />
-								<MenuItem fx:id="mI_Administradores_ENERGIA"
-									mnemonicParsing="false" text="Administraçao de ENERGIA" />
-								<MenuItem fx:id="mI_Administradores_AGUA"
-									mnemonicParsing="false" text="Administraçao de AGUA" />
-								<MenuItem fx:id="mI_Administradores_CONDOMINIOS"
-									mnemonicParsing="false" text="Administraçao de CONDOMÍNIOS" />
-								<MenuItem fx:id="mI_Gerentes" mnemonicParsing="false"
-									text="Gerentes" />
-								<MenuItem fx:id="mI_Clientes" mnemonicParsing="false"
-									text="Clientes" />
+								<MenuItem fx:id="mI_ProjetaBrasil" mnemonicParsing="false" text="Projeta Brasil" />
+								<MenuItem fx:id="mI_Contratantes" mnemonicParsing="false" text="Contrantes" />
+								<MenuItem fx:id="mI_Administradores_GERAL" mnemonicParsing="false" text="Administradores Gerais" />
+								<MenuItem fx:id="mI_Administradores_IPTU" mnemonicParsing="false" text="Administraçao de IPTU" />
+								<MenuItem fx:id="mI_Administradores_ENERGIA" mnemonicParsing="false" text="Administraçao de ENERGIA" />
+								<MenuItem fx:id="mI_Administradores_AGUA" mnemonicParsing="false" text="Administraçao de AGUA" />
+								<MenuItem fx:id="mI_Administradores_CONDOMINIOS" mnemonicParsing="false" text="Administraçao de CONDOMÍNIOS" />
+								<MenuItem fx:id="mI_Gerentes" mnemonicParsing="false" text="Gerentes" />
+								<MenuItem fx:id="mI_Clientes" mnemonicParsing="false" text="Clientes" />
 
 							</items>
 						</Menu>
 					</items>
 				</Menu>
-				<Menu mnemonicParsing="false" text="Serviços">
+				<Menu fx:id="menu_Servicos" mnemonicParsing="false" text="Serviços">
 					<items>
-						<MenuItem fx:id="mI_Servicos_IPTU" mnemonicParsing="false"
-							text="IPTU" />
-						<MenuItem fx:id="mI_Servicos_ENERGIA" mnemonicParsing="false"
-							text="ENERGIA" />
-						<MenuItem fx:id="mI_Servicos_AGUA" mnemonicParsing="false"
-							text="AGUA" />
-						<MenuItem fx:id="mI_Servicos_CONDOMINIOS"
-							mnemonicParsing="false" text="CONDOMINIOS" />
+                  <Menu fx:id="menu_Agua" mnemonicParsing="false" text="AGUA">
+                     <items>
+                        <Menu fx:id="menu_Agua_CNDS" mnemonicParsing="false" text="CNDS">
+                           <items>
+                              <MenuItem fx:id="mI_Agua_CNDS_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Agua_Conferencia" mnemonicParsing="false" text="CONFERENCIA DE DEBITO">
+                           <items>
+                              <MenuItem fx:id="mI_Agua_Conferencia_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Agua_Comparativos" mnemonicParsing="false" text="COMPARATIVOS">
+                           <items>
+                              <MenuItem fx:id="mI_Agua_Comparativos_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_DAMS" mnemonicParsing="false" text="DAMS">
+                           <items>
+                              <MenuItem fx:id="mI_DAMS_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="menu_Condominios" mnemonicParsing="false" text="CONDOMINIOS" />
+                  <Menu fx:id="menu_Energia" mnemonicParsing="false" text="ENERGIA">
+                     <items>
+                        <Menu fx:id="menu_Energia_CNDS" mnemonicParsing="false" text="CNDS">
+                           <items>
+                              <MenuItem fx:id="mI_Energia_CNDS_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Energia_Conferencia_de_Debitos" mnemonicParsing="false" text="CONFERENCIA DE DEBITO">
+                           <items>
+                              <MenuItem fx:id="mI_Energia_Conferencia_de_Debitos_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Energia_Comparativos" mnemonicParsing="false" text="COMPARATIVOS">
+                           <items>
+                              <MenuItem fx:id="mI_Energia_Comparativos_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Energia_DAMS" mnemonicParsing="false" text="DAMS">
+                           <items>
+                              <MenuItem fx:id="mI_Energia_DAMS_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_Energia_Transferencias" mnemonicParsing="false" text="TRANSFERENCIA DE DEBITOS">
+                           <items>
+                              <MenuItem fx:id="mI_Energia_Transferencias_Santa_Catarina_SC" mnemonicParsing="false" text="SANTA_CATARINA_SC" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="menu_IPTU" mnemonicParsing="false" text="IPTU">
+                     <items>
+                        <Menu fx:id="menu_CNDS" mnemonicParsing="false" text="CNDS">
+                           <items>
+                              <MenuItem fx:id="mI_CNDS_Biguacu_SC" mnemonicParsing="false" text="BIGUAÇU_SC" />
+                              <MenuItem fx:id="mI_CNDS_Florianopolis_SC" mnemonicParsing="false" text="FLORIANOPOLIS_SC" />
+                              <MenuItem fx:id="mI_CNDS_Sao_Jose_SC" mnemonicParsing="false" text="SAO JOSE_SC" />
+                              <MenuItem fx:id="mI_CNDS_Palhoca_SC" mnemonicParsing="false" text="PALHOÇA_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_IPTU_Conferencia_de_debito" mnemonicParsing="false" text="CONFERENCIA DE DEBITO">
+                           <items>
+                              <MenuItem fx:id="mI_IPTU_Conferencia_de_debito_Biguacu_SC" mnemonicParsing="false" text="BIGUAÇU_SC" />
+                              <MenuItem fx:id="mI_IPTU_Conferencia_de_debito_Florianopolis_SC" mnemonicParsing="false" text="FLORIANOPOLIS_SC" />
+                              <MenuItem fx:id="mI_IPTU_Conferencia_de_debito_Palhoca_SC" mnemonicParsing="false" text="PALHOÇA_SC" />
+                              <MenuItem fx:id="mI_IPTU_Conferencia_de_debito_Sao_Jose_SC" mnemonicParsing="false" text="SAO JOSE_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_IPTU_Comparativos" mnemonicParsing="false" text="COMPARATIVOS">
+                           <items>
+                              <MenuItem fx:id="mI_IPTU_Comparativos_Biguacu_SC" mnemonicParsing="false" text="BIGUAÇU_SC" />
+                              <MenuItem fx:id="mI_IPTU_Comparativos_Florianopolis_SC" mnemonicParsing="false" text="FLORIANOPOLIS_SC" />
+                              <MenuItem fx:id="mI_IPTU_Comparativos_Palhoca_SC" mnemonicParsing="false" text="PALHOÇA_SC" />
+                              <MenuItem fx:id="mI_IPTU_Comparativos_Sao_Jose_SC" mnemonicParsing="false" text="SAO JOSE_SC" />
+                           </items>
+                        </Menu>
+                        <Menu fx:id="menu_IPTU_DAMS" mnemonicParsing="false" text="DAMS">
+                           <items>
+                              <MenuItem fx:id="mI_IPTU_DAMS_Biguacu_SC" mnemonicParsing="false" text="BIGUAÇU_SC" />
+                              <MenuItem fx:id="mI_IPTU_DAMS_Florianopolis_SC" mnemonicParsing="false" text="FLORIANOPOLIS_SC" />
+                              <MenuItem fx:id="mI_IPTU_DAMS_Palhoca_SC" mnemonicParsing="false" text="PALHOÇA_SC" />
+                              <MenuItem fx:id="mI_IPTU_DAMS_Sao_Jose_SC" mnemonicParsing="false" text="SAO JOSE_SC" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Configurações">
 					<items>
 						<Menu mnemonicParsing="false" text="Acessos por Perfil">
 							<items>
-								<MenuItem fx:id="mI_Configurar_Acessos_Por_Perfil"
-									mnemonicParsing="false" text="Configurar" />
+								<MenuItem fx:id="mI_Configurar_Acessos_Por_Perfil" mnemonicParsing="false" text="Configurar" />
 							</items>
 						</Menu>
 						<Menu mnemonicParsing="false" text="Serviços por Contratantes">
 							<items>
-								<MenuItem fx:id="mI_Configurar_Servicos_Por_Contratante"
-									mnemonicParsing="false" text="Configurar" />
+								<MenuItem fx:id="mI_Configurar_Servicos_Por_Contratante" mnemonicParsing="false" text="Configurar" />
 							</items>
 						</Menu>
 					</items>
@@ -77,29 +143,24 @@
 		</MenuBar>
 	</top>
 	<bottom>
-		<ToolBar prefHeight="40.0" prefWidth="200.0"
-			BorderPane.alignment="CENTER">
+		<ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<items>
-				<Label fx:id="lb_Empresa_Logada" prefHeight="19.0" prefWidth="303.0"
-					text="Empresa" textFill="#da142b">
+				<Label fx:id="lb_Empresa_Logada" prefHeight="19.0" prefWidth="303.0" text="Empresa" textFill="#da142b">
 					<font>
 						<Font name="System Bold" size="13.0" />
 					</font>
 				</Label>
-				<Label fx:id="lb_Pessoa_Logada" prefHeight="19.0" prefWidth="391.0"
-					text="Pessoa" textFill="#da142b">
+				<Label fx:id="lb_Pessoa_Logada" prefHeight="19.0" prefWidth="391.0" text="Pessoa" textFill="#da142b">
 					<font>
 						<Font name="System Bold" size="13.0" />
 					</font>
 				</Label>
-				<Label fx:id="lb_Perfil_Pessoa_Logada" prefHeight="19.0"
-					prefWidth="248.0" text="Perfil" textFill="#da142b">
+				<Label fx:id="lb_Perfil_Pessoa_Logada" prefHeight="19.0" prefWidth="248.0" text="Perfil" textFill="#da142b">
 					<font>
 						<Font name="System Bold" size="13.0" />
 					</font>
 				</Label>
-				<Label fx:id="lb_Formulario_Atual" prefHeight="19.0"
-					prefWidth="311.0" text="Formulario" textFill="#da142b">
+				<Label fx:id="lb_Formulario_Atual" prefHeight="19.0" prefWidth="311.0" text="Formulario" textFill="#da142b">
 					<font>
 						<Font name="System Bold" size="13.0" />
 					</font>

@@ -5,6 +5,13 @@ import java.util.List;
 
 import controller.protocolos.controlesgerais.ProtocoloController_ControlesGerais_A;
 import controller.protocolos.passoe.servicos.iptu.comparativos.IptuComparativosFlorianopolisScReport;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import model.entities.ProtocolosdeServicos;
 import model.entities.ProtocolosdeServicos_Detalhe;
 import model.enums.Enum_Aux_Navegadores;
@@ -13,8 +20,16 @@ import net.sf.jasperreports.engine.JRException;
 import util.Utilidades;
 
 public class ProtocoloController_Controles_Metodos_A extends ProtocoloController_Controles_Metodos_B {
-
+	private int i = 0;
+	ObservableList<ProtocolosdeServicos_Detalhe> ff = FXCollections.observableArrayList();
+	
+	
+	
 	protected void inicializa_Eventos() {
+		inicializaRolagem();
+		
+		
+		
 		bt_Inicio.setOnAction((e) -> {
 			navegacao(Enum_Aux_Navegadores.INICIO);
 		});
@@ -36,7 +51,10 @@ public class ProtocoloController_Controles_Metodos_A extends ProtocoloController
 				novoProtocolo();
 		});
 
-		bt_Alterar.setOnAction((e) -> {
+		bt_Rolagem.setOnAction((e) -> {              
+			rolar();
+			
+			
 		});
 
 		bt_Relatorio_Analitico.setOnAction((e) -> {
@@ -63,6 +81,68 @@ public class ProtocoloController_Controles_Metodos_A extends ProtocoloController
 		});
 		navegacao(Enum_Aux_Navegadores.FIM);
 		
+		
+	}
+	
+	public void inicializaRolagem() {
+		
+		sB.setMax(tV_ProtServicos_Detalhe.getItems().size()-1); 
+		sB.setMin(0);
+		
+		sB.valueProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> ov, Number oldV, Number newV) {
+				tV_ProtServicos_Detalhe.scrollTo(newV.intValue());
+				tV_ProtServicos_Detalhe.getSelectionModel().select(newV.intValue());
+				tV_ProtServicos_Detalhe.requestFocus();
+			}
+		});
+	}
+	
+	public void rolar() {
+		i = 0;
+		
+		ff = tV_ProtServicos_Detalhe.getItems();
+		System.out.println("tamanho: " +ff.size());
+		
+		
+		Task<Void> task = new Task<Void>() {
+			@SuppressWarnings("unused")
+			@Override
+			public Void call() throws Exception {
+				updateMessage("iniciando");
+				
+				for (ProtocolosdeServicos_Detalhe pd : ff) {	
+					updateMessage(""+i+"/"+ff.size());
+					
+					
+					i++;
+				}
+				return null;
+			}
+		};
+
+		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+			@Override
+			public void handle(WorkerStateEvent event) {
+				
+
+			}
+		});
+		task.messageProperty().addListener((obs, oldMessage, newMessage) -> {
+			sB.setValue(i);
+			lb_Rolagem.setText(newMessage);
+			
+		});
+		task.setOnFailed(new EventHandler<WorkerStateEvent>() {
+			@Override
+			public void handle(WorkerStateEvent event) {
+				
+			}
+		});
+		ProtocoloController_ControlesGerais_A.setSync(new Thread(task));		
+		ProtocoloController_ControlesGerais_A.getSync().start();
+
 		
 	}
 

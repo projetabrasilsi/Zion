@@ -390,7 +390,7 @@
 				<Button fx:id="bt_Novo" layoutX="478.0" layoutY="523.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Novo" />
 				<Button fx:id="bt_Relatorio_Sintetico" layoutX="791.0" layoutY="521.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="177.0" text="Relatório Sintetico" />
 				<Button fx:id="bt_Relatorio_Analitico" layoutX="602.0" layoutY="521.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="169.0" text="Relatório Analítico" />
-				<Button fx:id="bt_AtvDatv" layoutX="1004.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Ativ/Desat" />
+				<Button fx:id="bt_Rolagem" layoutX="1004.0" layoutY="523.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Rolagem" />
 
 			</children>
 		</Group>
@@ -402,7 +402,7 @@
 				<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
 			</padding>
 		</Label>
-		<TableView fx:id="tV_ProtServicos_Detalhe" layoutX="16.0" layoutY="423.0" prefHeight="164.0" prefWidth="1195.0">
+		<TableView fx:id="tV_ProtServicos_Detalhe" layoutX="16.0" layoutY="423.0" prefHeight="148.0" prefWidth="1195.0">
 			<columns>
 				<TableColumn fx:id="tC_Contador" prefWidth="66.0" text="Contador" />
 				<TableColumn fx:id="tC_Inscricao" prefWidth="187.0" text="Inscriçao" />
@@ -489,6 +489,11 @@
          </font>
       </Label>
       <ComboBox fx:id="cB_FilterField" layoutX="1019.0" layoutY="392.0" prefHeight="29.0" prefWidth="156.0" />
+      <Label fx:id="lb_Rolagem" alignment="CENTER" layoutX="21.0" layoutY="574.0" prefHeight="17.0" prefWidth="100.0" textAlignment="CENTER" textFill="#5a0390">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
 
 	</children>
 </AnchorPane>

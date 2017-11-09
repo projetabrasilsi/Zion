@@ -83,6 +83,9 @@ public class ProtocoloController_Controles_Metodos_F extends ProtocoloController
 		else
 			tV_ProtServicos_Detalhe.getItems().clear();
 	}
+	
+	
+	
 
 	public void setarResumo(ProtocolosdeServicos pS) {
         if(pS!=null) {
@@ -155,14 +158,6 @@ public class ProtocoloController_Controles_Metodos_F extends ProtocoloController
 		lb_nRegAumentouValorPerc_Value.setText(ProtocoloController_ControlesGerais_A.retornaFormato(pS.getnRegAumentouValorPerc(),true));
 		lb_nRegDiminuiValorPerc_Value.setText(ProtocoloController_ControlesGerais_A.retornaFormato(pS.getnRegDiminuiValorPerc(),true));
 		lb_nRegPermaneceuValorPerc_Value.setText(ProtocoloController_ControlesGerais_A.retornaFormato(pS.getnRegAumentouValorPerc(),true));
-		
-		
-		
-		
-		
-		
-		
-		
         }else {
         	lb_PermanenciaFinalPerc_Value.setText("");
         	lb_nTotalRegPerc_Value.setText("");

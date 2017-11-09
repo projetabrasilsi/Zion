@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -22,6 +23,7 @@ import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.text.DateFormat;
 import java.text.Normalizer;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -31,6 +33,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.TimeZone;
 import java.util.logging.Level;
@@ -109,6 +112,41 @@ public class Utilidades implements Serializable {
 
 	public static void setTextoLabel(String textoLabel) {
 		Utilidades.textoLabel = textoLabel;
+	}
+	
+	public static double transformaemMoeda(String texto) {
+		double retorno = 0;
+		
+	   
+		
+		
+		texto = retiraVazios(texto);
+		
+		
+		if(texto.length()>0) {			 
+			NumberFormat nf = NumberFormat.getInstance(new Locale("pt","BR"));
+		    try {
+		        Number parsed = nf.parse(texto);
+		        BigDecimal bd1 = new BigDecimal(parsed.toString());
+		        retorno = bd1.doubleValue();
+		        
+
+		    } catch (ParseException e) {
+		        e.printStackTrace();
+		    }
+			
+		}
+		
+		return retorno;
+	}
+	
+	public static int transformaemInteiro(String texto) {
+		int retorno = 0;
+		texto = retiraVazios(texto);
+		if(texto.length()>0)
+			retorno = Integer.parseInt(texto);
+		
+		return retorno;
 	}
 
 	@SuppressWarnings("unused")
@@ -468,6 +506,16 @@ public class Utilidades implements Serializable {
 	public static String tipodeImagem() {
 		return getTipoimagem();
 	}
+	public static int retornaAno() {
+		Calendar now = Calendar.getInstance();   // Gets the current date and time
+		int year = now.get(Calendar.YEAR);
+		return year;
+	}
+	public static int retornaMes() {
+		Calendar now = Calendar.getInstance();   // Gets the current date and time
+		int year = now.get(Calendar.MONTH);
+		return year;
+	}
 
 	public static Calendar retornaCalendario() {
 
@@ -552,7 +600,8 @@ public class Utilidades implements Serializable {
 	public static String retiraVazios(String texto) {
 		if (texto == null)
 			texto = "";
-		texto.trim();
+		texto = texto.trim();
+		texto = texto.replaceAll(" ","");
 		return texto;
 	}
 

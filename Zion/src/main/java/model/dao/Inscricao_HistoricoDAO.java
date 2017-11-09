@@ -40,6 +40,57 @@ public class Inscricao_HistoricoDAO extends GenericDAO<Inscricao_Historico> {
 		return insc_Hist;
 	}
 	
+	public Inscricao_Historico verificaSeExistePeloRadicalDam(Inscricao_Historico insc_Hist) {
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		
+		try {
+		Criteria crit = sessao.createCriteria(Inscricao_Historico.class);
+		
+		crit.add(Restrictions.eq("id_Inscricao",insc_Hist.getId_Inscricao()));
+		crit.add(Restrictions.eq("enum_Aux_Servicos_Sub_Classificacoes", insc_Hist.getEnum_Aux_Servicos_Sub_Classificacoes()));		
+		crit.add(Restrictions.eq("radicalDam", insc_Hist.getRadicalDam()));
+		crit.add(Restrictions.eq("parAberto", insc_Hist.getParAberto()));
+		
+			
+		
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		 crit.setFirstResult(0);
+		crit.setMaxResults(1);
+		insc_Hist = (Inscricao_Historico) crit.uniqueResult();
+		}catch (RuntimeException error) {
+			error.printStackTrace();
+			throw error;
+		} finally {
+			sessao.close();
+		}
+		
+		return insc_Hist;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Inscricao_Historico> reTornaLista(Inscricao_Historico insc_Hist) {
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		List<Inscricao_Historico> lista = null;
+		
+		try {
+		Criteria crit = sessao.createCriteria(Inscricao_Historico.class);
+		
+		crit.add(Restrictions.eq("id_Inscricao",insc_Hist.getId_Inscricao()));
+		crit.add(Restrictions.eq("enum_Aux_Servicos_Sub_Classificacoes", insc_Hist.getEnum_Aux_Servicos_Sub_Classificacoes()));		
+		crit.add(Restrictions.eq("pago", insc_Hist.getPago()));		
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);		 
+		
+		lista =  crit.list();
+		}catch (RuntimeException error) {
+			error.printStackTrace();
+			throw error;
+		} finally {
+			sessao.close();
+		}
+		
+		return lista;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Inscricao_Historico> listagem(Inscricao_Historico insc_Hist) {
 		List<Inscricao_Historico> lista = null;

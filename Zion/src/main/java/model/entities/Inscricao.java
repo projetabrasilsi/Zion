@@ -37,6 +37,8 @@ public class Inscricao extends GenericDomain implements Serializable {
 	private boolean status;
 	private String nInsc;
 	private String dados_Base;
+	private String proprietario;
+	private String endereco;
 	
 	
 	
@@ -51,12 +53,14 @@ public class Inscricao extends GenericDomain implements Serializable {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((dados_Base == null) ? 0 : dados_Base.hashCode());
+		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result
 				+ ((enum_Aux_Servicos_Classificacoes == null) ? 0 : enum_Aux_Servicos_Classificacoes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((id_Mestre == null) ? 0 : id_Mestre.hashCode());
 		result = prime * result + ((id_Pessoa_Registro == null) ? 0 : id_Pessoa_Registro.hashCode());
 		result = prime * result + ((nInsc == null) ? 0 : nInsc.hashCode());
+		result = prime * result + ((proprietario == null) ? 0 : proprietario.hashCode());
 		result = prime * result + (status ? 1231 : 1237);
 		return result;
 	}
@@ -73,6 +77,11 @@ public class Inscricao extends GenericDomain implements Serializable {
 			if (other.dados_Base != null)
 				return false;
 		} else if (!dados_Base.equals(other.dados_Base))
+			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
 			return false;
 		if (enum_Aux_Servicos_Classificacoes != other.enum_Aux_Servicos_Classificacoes)
 			return false;
@@ -96,6 +105,11 @@ public class Inscricao extends GenericDomain implements Serializable {
 				return false;
 		} else if (!nInsc.equals(other.nInsc))
 			return false;
+		if (proprietario == null) {
+			if (other.proprietario != null)
+				return false;
+		} else if (!proprietario.equals(other.proprietario))
+			return false;
 		if (status != other.status)
 			return false;
 		return true;
@@ -104,7 +118,8 @@ public class Inscricao extends GenericDomain implements Serializable {
 	public String toString() {
 		return "Inscricao [id=" + id + ", enum_Aux_Servicos_Classificacoes=" + enum_Aux_Servicos_Classificacoes
 				+ ", id_Mestre=" + id_Mestre + ", status=" + status + ", nInsc=" + nInsc + ", dados_Base=" + dados_Base
-				+ ", id_Pessoa_Registro=" + id_Pessoa_Registro + "]";
+				+ ", proprietario=" + proprietario + ", endereco=" + endereco + ", id_Pessoa_Registro="
+				+ id_Pessoa_Registro + "]";
 	}
 	public Pessoa getId_Pessoa_Registro() {
 		return id_Pessoa_Registro;
@@ -147,6 +162,18 @@ public class Inscricao extends GenericDomain implements Serializable {
 	}
 	public void setDados_Base(String dados_Base) {
 		this.dados_Base = dados_Base;
+	}
+	public String getProprietario() {
+		return proprietario;
+	}
+	public void setProprietario(String proprietario) {
+		this.proprietario = proprietario;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 	
 	

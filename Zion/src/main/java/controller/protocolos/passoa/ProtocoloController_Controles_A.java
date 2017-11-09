@@ -9,6 +9,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
@@ -47,8 +48,16 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	protected TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Comparativos_Resultados> tC_Resultado = new TableColumn<>("Resultado");
 	@FXML
     protected ComboBox<Enum_Aux_Comparativos_Resultados> cB_FilterField = new ComboBox<Enum_Aux_Comparativos_Resultados>();
-    
+    @FXML
     protected ObservableList<ProtocolosdeServicos_Detalhe> filteredData = FXCollections.observableArrayList();
+    @FXML
+    protected ScrollBar sB =  new ScrollBar();
+    
+    
+    
+    
+    
+    
 	
     
 	
@@ -56,7 +65,7 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	protected ObservableList<ProtocolosdeServicos_Detalhe> ProtocolosdeServicos_DetalheObsList = FXCollections
 			.observableArrayList();
 	@FXML
-	protected Button bt_Alterar = new Button();
+	protected Button bt_Rolagem = new Button();
 	@FXML
 	protected Button bt_Anterior = new Button();
 	@FXML
@@ -170,6 +179,11 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	protected Label lb_PermanenciaPerc_Value = new Label();
 	@FXML
 	protected Label lb_PermanenciaFinalPerc_Value = new Label();
+	
+	@FXML
+	protected Label lb_Rolagem = new Label();
+	
+	
 
 	@FXML
 	protected Label lb_nRegAntPerc_Value = new Label();

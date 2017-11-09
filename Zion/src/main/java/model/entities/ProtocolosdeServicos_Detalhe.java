@@ -47,6 +47,8 @@ public class ProtocolosdeServicos_Detalhe extends GenericDomain implements Seria
 	private String num_Dam;
 	private String num_Dam_Sub;
 	private String num_Codigo_Barras;
+	
+	
 	 
 	private int contador;
 	@OneToOne(cascade = CascadeType.PERSIST)

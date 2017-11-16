@@ -35,7 +35,7 @@ public class Cidade extends GenericDomain implements Serializable {
 	@ManyToOne
 	@JoinColumn ( name ="id_Pessoa_Registro")	
 	private Pessoa id_Pessoa_Registro;
-	
+	@Column(name="ibge", length = 20, nullable=false)
 	private String ibge;
 	
 	

@@ -27,7 +27,7 @@ public class Profissao extends GenericDomain implements Serializable {
 	private String descricao;
 	
 	@OneToOne
-	@JoinColumn ( name ="id_Pessoa_Registro")
+	@JoinColumn ( name ="id_Pessoa_Registro",nullable = false)
 	private Pessoa id_Pessoa_Registro;
 	
 	public Profissao(){

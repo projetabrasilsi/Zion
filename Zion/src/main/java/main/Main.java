@@ -30,6 +30,7 @@ public class Main extends Application {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+
 			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				@Override
 				public void handle(WindowEvent arg0) {

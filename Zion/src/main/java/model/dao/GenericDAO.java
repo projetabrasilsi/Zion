@@ -149,9 +149,11 @@ public class GenericDAO<Entity> {
 			transacao.commit();
 			return(ent);
 		} catch (RuntimeException erro) {
+			
 			if (transacao != null) {
 				transacao.rollback();
 			}
+			erro.printStackTrace();
 			throw erro;
 		} finally {
 			sessao.close();

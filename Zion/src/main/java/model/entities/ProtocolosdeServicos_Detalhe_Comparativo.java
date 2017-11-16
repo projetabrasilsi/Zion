@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,10 +24,13 @@ public class ProtocolosdeServicos_Detalhe_Comparativo extends GenericDomain impl
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="pk_protocolosdeServicos_Detalhe_Comparativo")
 	@SerializedName("id")
 	private Long id;
+	@JoinColumn ( name ="id_ProtocolosdeServicos_Detalhe", nullable = false)
 	private ProtocolosdeServicos_Detalhe id_ProtocolosdeServicos_Detalhe;
+	@Column(name = "ano")
 	private int ano;
 	@Column(name="valor",precision=18,scale=4)
-	private double valor;
+	private double valor;	
+	@Column(name="id_Pessoa_Registro", nullable = false)
 	@SerializedName("id_Pessoa_Registro")
 	private Pessoa id_Pessoa_Registro;
 	

@@ -18,8 +18,7 @@ public class GenericDomain implements Serializable {
 	 */
 	private static final long serialVersionUID = -4664956343242539547L;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	
+	@Temporal(TemporalType.TIMESTAMP)	
 	private Calendar ultimaAtualizacao;
 	@Column(name = "id_empresa")
 	private int id_Empresa;

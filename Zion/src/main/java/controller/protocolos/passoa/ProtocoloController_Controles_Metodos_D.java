@@ -3,31 +3,17 @@ package controller.protocolos.passoa;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 import model.entities.Inscricao;
 import model.entities.Pessoa;
 import model.entities.ProtocolosdeServicos_Detalhe;
 import model.enums.Enum_Aux_Comparativos_Resultados;
+import model.enums.Enum_Aux_Tipo_Conferencia;
 
-public class ProtocoloController_Controles_Metodos_D extends  ProtocoloController_Controles_Metodos_E   {
-	
-	
+public class ProtocoloController_Controles_Metodos_D extends ProtocoloController_Controles_Metodos_E {
 	public void configuraTableView_3() {
-		tV_ProtServicos_Detalhe.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent keyEvent) {
-				KeyCode keyCode = keyEvent.getCode();
-				if (keyEvent.isControlDown() && keyCode == KeyCode.END) {
-
-				}
-			}
-		});
-		
 		tC_Inscricao.setCellFactory(
 				new Callback<TableColumn<ProtocolosdeServicos_Detalhe, Inscricao>, TableCell<ProtocolosdeServicos_Detalhe, Inscricao>>() {
 					@Override
@@ -40,7 +26,11 @@ public class ProtocoloController_Controles_Metodos_D extends  ProtocoloControlle
 								if (empty) {
 									this.setText("");
 								} else {
-									this.setText(item.getnInsc());
+
+									if (item != null && item.getnInsc() != null)
+										this.setText(item.getnInsc());
+									else
+										this.setText("");
 								}
 							}
 						};
@@ -60,14 +50,17 @@ public class ProtocoloController_Controles_Metodos_D extends  ProtocoloControlle
 								if (empty) {
 									this.setText("");
 								} else {
-									this.setText(item.getDescricao());
+									if (item != null && item.getDescricao() != null)
+										this.setText(item.getDescricao());
+									else
+										this.setText("");
 								}
 							}
 						};
 						return cell;
 					}
 				});
-		
+
 		tC_Resultado.setCellFactory(
 				new Callback<TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Comparativos_Resultados>, TableCell<ProtocolosdeServicos_Detalhe, Enum_Aux_Comparativos_Resultados>>() {
 					@Override
@@ -80,7 +73,10 @@ public class ProtocoloController_Controles_Metodos_D extends  ProtocoloControlle
 								if (empty) {
 									this.setText("");
 								} else {
-									this.setText(item.getDescricao());
+									if (item != null && item.getDescricao() != null)
+										this.setText(item.getDescricao());
+									else
+										this.setText("");
 								}
 							}
 						};
@@ -100,10 +96,36 @@ public class ProtocoloController_Controles_Metodos_D extends  ProtocoloControlle
 								if (empty) {
 									this.setText("");
 								} else {
+									if (item != null && item.getTime() != null) {
 
-									SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-									String strDate = sdf.format(item.getTime());
-									this.setText(strDate);
+										SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+										String strDate = sdf.format(item.getTime());
+										this.setText(strDate);
+									} else
+										this.setText("");
+								}
+							}
+						};
+						return cell;
+					}
+				});
+		
+		tC_TipoConferencia.setCellFactory(
+				new Callback<TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia>, TableCell<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia>>() {
+					@Override
+					public TableCell<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia> call(
+							TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia> p) {
+						final TableCell<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia> cell = new TableCell<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia>() {
+							@Override
+							public void updateItem(final Enum_Aux_Tipo_Conferencia item, boolean empty) {
+								super.updateItem(item, empty);
+								if (empty) {
+									this.setText("");
+								} else {
+									if (item != null && item.getCabecalho() != null) {
+										this.setText(item.getCabecalho());
+									} else
+										this.setText("");
 								}
 							}
 						};
@@ -111,9 +133,5 @@ public class ProtocoloController_Controles_Metodos_D extends  ProtocoloControlle
 					}
 				});
 	}
-
-	
-	
-
 
 }

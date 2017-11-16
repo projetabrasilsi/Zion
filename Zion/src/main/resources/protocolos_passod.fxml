@@ -13,15 +13,15 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <Label fx:id="lb_Titulo_Tela" alignment="CENTER" contentDisplay="CENTER" layoutY="84.0" prefHeight="55.0" prefWidth="568.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
+      <Button fx:id="bt_Fechar" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Fechar" />
+      <ProgressIndicator fx:id="pBI" blendMode="DARKEN" layoutY="24.0" prefHeight="55.0" prefWidth="568.0" progress="0.0" />
+      <ProgressBar fx:id="pBar" prefHeight="18.0" prefWidth="568.0" progress="0.0" />
+      <Label fx:id="lb_Titulo_Merge" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="177.0" prefHeight="33.0" prefWidth="568.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="bt_Fechar" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Fechar" />
-      <ProgressIndicator fx:id="pBI" blendMode="DARKEN" layoutY="24.0" prefHeight="55.0" prefWidth="568.0" progress="0.0" />
-      <ProgressBar fx:id="pBar" prefHeight="18.0" prefWidth="568.0" progress="0.0" />
-      <Label fx:id="lb_Titulo_Merge" alignment="CENTER" contentDisplay="CENTER" layoutY="145.0" prefHeight="55.0" prefWidth="568.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="lb_Titulo_Tela" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="116.0" prefHeight="33.0" prefWidth="568.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

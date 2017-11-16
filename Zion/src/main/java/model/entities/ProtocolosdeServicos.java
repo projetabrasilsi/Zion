@@ -37,84 +37,124 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 	@SerializedName("id")
 	private Long id;
 	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "id_Pessoa_Registro")
+	@JoinColumn(name = "id_Pessoa_Registro", nullable = false)
 	@SerializedName("id_Pessoa_Registro")
 	private Pessoa id_Pessoa_Registro;
 	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "id_Mestre")
+	@JoinColumn(name = "id_Mestre", nullable = false)
 	@SerializedName("id_Mestre")
 	private Pessoa id_Mestre;
 	@Enumerated(EnumType.STRING)
-	@Column(name="enum_Aux_Servicos_Status", nullable=true)
+	@Column(name="enum_Aux_Servicos_Status", nullable=false)
 	private Enum_Aux_Servicos_Status enum_Aux_Servicos_Status;
 	@Enumerated(EnumType.STRING)
-	@Column(name="enum_Aux_Servicos_Composicoes", nullable=true)
+	@Column(name="enum_Aux_Servicos_Composicoes", nullable=false)
 	
 	private Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar tempoInicial;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar tempoFinal;	
+	@Column(name = "diferencadeTempo", precision = 18, scale = 8)
 	private long diferencadeTempo;
+	@Column(name = "diferencadeTempoTexto",length = 120)
 	private String diferencadeTempoTexto;	
+	@Column(name = "anoAnt")
 	private int anoAnt = 0;
+	@Column(name = "anoAtual")
 	private int anoAtual = 0;
-	private int MesAnt = 0;
-	private int MesAtual = 0;
-	private int nTotalReg = 0;	
-	private int nRegAnt = 0;	
-	private int nRegAtual = 0;	
+	@Column(name = "mesAnt")
+	private int mesAnt = 0;
+	@Column(name = "mesAtual")
+	private int mesAtual = 0;
+	@Column(name = "nTotalReg")
+	private int nTotalReg = 0;
+	@Column(name = "nRegAnt")
+	private int nRegAnt = 0;
+	@Column(name = "nRegAtual")
+	private int nRegAtual = 0;
+	@Column(name = "vlTot", precision = 18, scale = 4)
 	private double vlTot = 0;
-	private double vlTotAnt = 0;	
-	private double vlTotAtual = 0;	
+	@Column(name = "vlTotAnt", precision = 18, scale = 4)
+	private double vlTotAnt = 0;
+	@Column(name = "vlTotAtual", precision = 18, scale = 4)
+	private double vlTotAtual = 0;
+	@Column(name = "vlTotAumentou", precision = 18, scale = 4)
 	private double vlTotAumentou = 0;
+	@Column(name = "vlTotDifInflacao", precision = 18, scale = 4)
 	private double vlTotDifInflacao = 0;
+	@Column(name = "vlTotdifDeflacao", precision = 18, scale = 4)
 	private double vlTotDifDeflacao = 0;
 	
 	
-	
-	private double vlTotPermaneceu = 0;	
+	@Column(name = "vlTotPermaneceu", precision = 18, scale = 4)
+	private double vlTotPermaneceu = 0;
+	@Column(name = "vlTotDiminuiu", precision = 18, scale = 4)
 	private double vlTotDiminuiu = 0;
 	
 	//@Column(name="crescimento", nullable = true )
+	@Column(name = "crescimento")
 	private int crescimento = 0;
 	//@Column(name="perdaPercentual", nullable = true )
+	@Column(name = "perdaPercentual", precision = 18, scale = 4)
 	private double perdaPercentual = 0;
 	//@Column(name="aquisicaoPercentual", nullable = true )
+	@Column(name = "aquisicaoPercentual", precision = 18, scale = 4)
 	private double aquisicaoPercentual = 0;
 	//@Column(name="crescimentoPercentual", nullable = true )
+	@Column(name = "crescimentoPercentual", precision = 18, scale = 4)
 	private double crescimentoPercentual = 0;
+	@Column(name = "novosPercentual", precision = 18, scale = 4)
 	private double novosPercentual = 0;
+	@Column(name = "permaneceuPercentual", precision = 18, scale = 4)
 	private double permaneceuPercentual = 0;
+	@Column(name = "nRegAtualPerc", precision = 18, scale = 4)
 	private double nRegAtualPerc = 0;
+	@Column(name = "nRegAntPerc", precision = 18, scale = 4)
 	private double nRegAntPerc = 0;
 	
 	
-		
+	@Column(name = "nRegSomenteAnt")	
 	private int nRegSomenteAnt = 0;
+	@Column(name = "nRegSomenteAtual")
 	private int nRegSomenteAtual = 0;
+	@Column(name = "nRegPermanentes")
 	private int nRegPermanentes = 0;
 	
+	@Column(name = "vlTotSomenteAnt", precision = 18, scale = 4)
 	private double vlTotSomenteAnt = 0;
+	@Column(name = "vlTotSomenteAtual", precision = 18, scale = 4)	
 	private double vlTotSomenteAtual = 0;
+	@Column(name = "vlTotPermaneceuValor", precision = 18, scale = 4)
 	private double vlTotPermaneceuValor = 0;
 	
-	
+	@Column(name = "nRegAumentouValor")
 	private int nRegAumentouValor = 0;
+	@Column(name = "nRegDiminuiuValor")
 	private int nRegDiminuiValor = 0;
+	@Column(name = "nRegPermaneceuValor")
 	private int nRegPermaneceuValor = 0;
-	
+	@Column(name = "nRegAumentouValorPerc", precision = 18, scale = 4)
 	private double nRegAumentouValorPerc = 0;
+	@Column(name = "nRegDiminuiuValorPerc", precision = 18, scale = 4)
 	private double nRegDiminuiValorPerc = 0;
+	@Column(name = "nRegPermaneceuValorPerc", precision = 18, scale = 4)
 	private double nRegPermaneceuValorPerc = 0;
-	
+	@Column(name = "CarteiraDiferencaInflacao", precision = 18, scale = 4)
 	private double CarteiraDiferencaInflacao = 0;
+	@Column(name = "CarteiraDiferencaDeflacao", precision = 18, scale = 4)
 	private double CarteiraDiferencaDeflacao = 0;
+	@Column(name = "CarteiraClientesNovos", precision = 18, scale = 4)
 	private double CarteiraClientesNovos = 0;
+	@Column(name = "CarteiraClientesBaixados", precision = 18, scale = 4)
 	private double CarteiraClientesBaixados = 0;
+	@Column(name = "CarteiraResultadoA", precision = 18, scale = 4)
 	private double CarteiraResultadoA = 0;
+	@Column(name = "CarteiraResultadoB", precision = 18, scale = 4)
 	private double CarteiraResultadoB = 0;
+	@Column(name = "CarteiraResultadoFinal", precision = 18, scale = 4)
 	private double CarteiraResultadoFinal = 0;
+	@Column(name = "CarteiraResultadoPercentualFinal", precision = 18, scale = 4)
 	private double CarteiraResultadoPercentualFinal = 0;
 	
 	
@@ -206,21 +246,7 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		this.anoAtual = anoAtual;
 	}
 
-	public int getMesAnt() {
-		return MesAnt;
-	}
-
-	public void setMesAnt(int mesAnt) {
-		MesAnt = mesAnt;
-	}
-
-	public int getMesAtual() {
-		return MesAtual;
-	}
-
-	public void setMesAtual(int mesAtual) {
-		MesAtual = mesAtual;
-	}
+	
 
 	public int getnTotalReg() {
 		return nTotalReg;
@@ -446,14 +472,126 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		this.nRegPermaneceuValor = nRegPermaneceuValor;
 	}
 
+	public Enum_Aux_Servicos_Composicoes getEnum_Aux_Servicos_Composicoes() {
+		return enum_Aux_Servicos_Composicoes;
+	}
+
+	public void setEnum_Aux_Servicos_Composicoes(Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes) {
+		this.enum_Aux_Servicos_Composicoes = enum_Aux_Servicos_Composicoes;
+	}
+
+	public int getMesAnt() {
+		return mesAnt;
+	}
+
+	public void setMesAnt(int mesAnt) {
+		this.mesAnt = mesAnt;
+	}
+
+	public int getMesAtual() {
+		return mesAtual;
+	}
+
+	public void setMesAtual(int mesAtual) {
+		this.mesAtual = mesAtual;
+	}
+
+	public double getnRegAumentouValorPerc() {
+		return nRegAumentouValorPerc;
+	}
+
+	public void setnRegAumentouValorPerc(double nRegAumentouValorPerc) {
+		this.nRegAumentouValorPerc = nRegAumentouValorPerc;
+	}
+
+	public double getnRegDiminuiValorPerc() {
+		return nRegDiminuiValorPerc;
+	}
+
+	public void setnRegDiminuiValorPerc(double nRegDiminuiValorPerc) {
+		this.nRegDiminuiValorPerc = nRegDiminuiValorPerc;
+	}
+
+	public double getnRegPermaneceuValorPerc() {
+		return nRegPermaneceuValorPerc;
+	}
+
+	public void setnRegPermaneceuValorPerc(double nRegPermaneceuValorPerc) {
+		this.nRegPermaneceuValorPerc = nRegPermaneceuValorPerc;
+	}
+
+	public double getCarteiraDiferencaInflacao() {
+		return CarteiraDiferencaInflacao;
+	}
+
+	public void setCarteiraDiferencaInflacao(double carteiraDiferencaInflacao) {
+		CarteiraDiferencaInflacao = carteiraDiferencaInflacao;
+	}
+
+	public double getCarteiraDiferencaDeflacao() {
+		return CarteiraDiferencaDeflacao;
+	}
+
+	public void setCarteiraDiferencaDeflacao(double carteiraDiferencaDeflacao) {
+		CarteiraDiferencaDeflacao = carteiraDiferencaDeflacao;
+	}
+
+	public double getCarteiraClientesNovos() {
+		return CarteiraClientesNovos;
+	}
+
+	public void setCarteiraClientesNovos(double carteiraClientesNovos) {
+		CarteiraClientesNovos = carteiraClientesNovos;
+	}
+
+	public double getCarteiraClientesBaixados() {
+		return CarteiraClientesBaixados;
+	}
+
+	public void setCarteiraClientesBaixados(double carteiraClientesBaixados) {
+		CarteiraClientesBaixados = carteiraClientesBaixados;
+	}
+
+	public double getCarteiraResultadoA() {
+		return CarteiraResultadoA;
+	}
+
+	public void setCarteiraResultadoA(double carteiraResultadoA) {
+		CarteiraResultadoA = carteiraResultadoA;
+	}
+
+	public double getCarteiraResultadoB() {
+		return CarteiraResultadoB;
+	}
+
+	public void setCarteiraResultadoB(double carteiraResultadoB) {
+		CarteiraResultadoB = carteiraResultadoB;
+	}
+
+	public double getCarteiraResultadoFinal() {
+		return CarteiraResultadoFinal;
+	}
+
+	public void setCarteiraResultadoFinal(double carteiraResultadoFinal) {
+		CarteiraResultadoFinal = carteiraResultadoFinal;
+	}
+
+	public double getCarteiraResultadoPercentualFinal() {
+		return CarteiraResultadoPercentualFinal;
+	}
+
+	public void setCarteiraResultadoPercentualFinal(double carteiraResultadoPercentualFinal) {
+		CarteiraResultadoPercentualFinal = carteiraResultadoPercentualFinal;
+	}
+
 	@Override
 	public String toString() {
 		return "ProtocolosdeServicos [id=" + id + ", id_Pessoa_Registro=" + id_Pessoa_Registro + ", id_Mestre="
 				+ id_Mestre + ", enum_Aux_Servicos_Status=" + enum_Aux_Servicos_Status
 				+ ", enum_Aux_Servicos_Composicoes=" + enum_Aux_Servicos_Composicoes + ", tempoInicial=" + tempoInicial
 				+ ", tempoFinal=" + tempoFinal + ", diferencadeTempo=" + diferencadeTempo + ", diferencadeTempoTexto="
-				+ diferencadeTempoTexto + ", anoAnt=" + anoAnt + ", anoAtual=" + anoAtual + ", MesAnt=" + MesAnt
-				+ ", MesAtual=" + MesAtual + ", nTotalReg=" + nTotalReg + ", nRegAnt=" + nRegAnt + ", nRegAtual="
+				+ diferencadeTempoTexto + ", anoAnt=" + anoAnt + ", anoAtual=" + anoAtual + ", mesAnt=" + mesAnt
+				+ ", mesAtual=" + mesAtual + ", nTotalReg=" + nTotalReg + ", nRegAnt=" + nRegAnt + ", nRegAtual="
 				+ nRegAtual + ", vlTot=" + vlTot + ", vlTotAnt=" + vlTotAnt + ", vlTotAtual=" + vlTotAtual
 				+ ", vlTotAumentou=" + vlTotAumentou + ", vlTotDifInflacao=" + vlTotDifInflacao + ", vlTotDifDeflacao="
 				+ vlTotDifDeflacao + ", vlTotPermaneceu=" + vlTotPermaneceu + ", vlTotDiminuiu=" + vlTotDiminuiu
@@ -495,8 +633,6 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(CarteiraResultadoPercentualFinal);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + MesAnt;
-		result = prime * result + MesAtual;
 		result = prime * result + anoAnt;
 		result = prime * result + anoAtual;
 		temp = Double.doubleToLongBits(aquisicaoPercentual);
@@ -512,6 +648,8 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((id_Mestre == null) ? 0 : id_Mestre.hashCode());
 		result = prime * result + ((id_Pessoa_Registro == null) ? 0 : id_Pessoa_Registro.hashCode());
+		result = prime * result + mesAnt;
+		result = prime * result + mesAtual;
 		result = prime * result + nRegAnt;
 		temp = Double.doubleToLongBits(nRegAntPerc);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -593,10 +731,6 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		if (Double.doubleToLongBits(CarteiraResultadoPercentualFinal) != Double
 				.doubleToLongBits(other.CarteiraResultadoPercentualFinal))
 			return false;
-		if (MesAnt != other.MesAnt)
-			return false;
-		if (MesAtual != other.MesAtual)
-			return false;
 		if (anoAnt != other.anoAnt)
 			return false;
 		if (anoAtual != other.anoAtual)
@@ -632,6 +766,10 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 			if (other.id_Pessoa_Registro != null)
 				return false;
 		} else if (!id_Pessoa_Registro.equals(other.id_Pessoa_Registro))
+			return false;
+		if (mesAnt != other.mesAnt)
+			return false;
+		if (mesAtual != other.mesAtual)
 			return false;
 		if (nRegAnt != other.nRegAnt)
 			return false;
@@ -702,102 +840,5 @@ public class ProtocolosdeServicos extends GenericDomain implements Serializable 
 		return true;
 	}
 
-	public Enum_Aux_Servicos_Composicoes getEnum_Aux_Servicos_Composicoes() {
-		return enum_Aux_Servicos_Composicoes;
-	}
-
-	public void setEnum_Aux_Servicos_Composicoes(Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes) {
-		this.enum_Aux_Servicos_Composicoes = enum_Aux_Servicos_Composicoes;
-	}
-
-	public double getCarteiraDiferencaInflacao() {
-		return CarteiraDiferencaInflacao;
-	}
-
-	public void setCarteiraDiferencaInflacao(double carteiraDiferencaInflacao) {
-		CarteiraDiferencaInflacao = carteiraDiferencaInflacao;
-	}
-
-	public double getCarteiraDiferencaDeflacao() {
-		return CarteiraDiferencaDeflacao;
-	}
-
-	public void setCarteiraDiferencaDeflacao(double carteiraDiferencaDeflacao) {
-		CarteiraDiferencaDeflacao = carteiraDiferencaDeflacao;
-	}
-
-	public double getCarteiraClientesNovos() {
-		return CarteiraClientesNovos;
-	}
-
-	public void setCarteiraClientesNovos(double carteiraClientesNovos) {
-		CarteiraClientesNovos = carteiraClientesNovos;
-	}
-
-	public double getCarteiraClientesBaixados() {
-		return CarteiraClientesBaixados;
-	}
-
-	public void setCarteiraClientesBaixados(double carteiraClientesBaixados) {
-		CarteiraClientesBaixados = carteiraClientesBaixados;
-	}
-
-	public double getCarteiraResultadoA() {
-		return CarteiraResultadoA;
-	}
-
-	public void setCarteiraResultadoA(double carteiraResultadoA) {
-		CarteiraResultadoA = carteiraResultadoA;
-	}
-
-	public double getCarteiraResultadoB() {
-		return CarteiraResultadoB;
-	}
-
-	public void setCarteiraResultadoB(double carteiraResultadoB) {
-		CarteiraResultadoB = carteiraResultadoB;
-	}
-
-	public double getCarteiraResultadoFinal() {
-		return CarteiraResultadoFinal;
-	}
-
-	public void setCarteiraResultadoFinal(double carteiraResultadoFinal) {
-		CarteiraResultadoFinal = carteiraResultadoFinal;
-	}
-
-	public double getCarteiraResultadoPercentualFinal() {
-		return CarteiraResultadoPercentualFinal;
-	}
-
-	public void setCarteiraResultadoPercentualFinal(double carteiraResultadoPercentualFinal) {
-		CarteiraResultadoPercentualFinal = carteiraResultadoPercentualFinal;
-	}
-
-	public double getnRegAumentouValorPerc() {
-		return nRegAumentouValorPerc;
-	}
-
-	public void setnRegAumentouValorPerc(double nRegAumentouValorPerc) {
-		this.nRegAumentouValorPerc = nRegAumentouValorPerc;
-	}
-
-	public double getnRegDiminuiValorPerc() {
-		return nRegDiminuiValorPerc;
-	}
-
-	public void setnRegDiminuiValorPerc(double nRegDiminuiValorPerc) {
-		this.nRegDiminuiValorPerc = nRegDiminuiValorPerc;
-	}
-
-	public double getnRegPermaneceuValorPerc() {
-		return nRegPermaneceuValorPerc;
-	}
-
-	public void setnRegPermaneceuValorPerc(double nRegPermaneceuValorPerc) {
-		this.nRegPermaneceuValorPerc = nRegPermaneceuValorPerc;
-	}
-
-	
-		
+			
 }

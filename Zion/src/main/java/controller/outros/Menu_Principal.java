@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.MenuItem;
 import model.enums.Enum_Aux_Formularios;
 import model.enums.Enum_Aux_Perfil_Pessoa;
-import model.enums.Enum_Aux_Servicos_Classificacoes;
+import model.enums.Enum_Aux_Servicos_Composicoes;
 import model.enums.Enum_Aux_Tipo_Pessoa;
 import util.Utilidades;
 
@@ -60,23 +60,91 @@ public class Menu_Principal extends Menu_Principal_Controles implements Initiali
 			chamaformulariodeClientes(Enum_Aux_Formularios.CAD_CLIENTES);
 		});
 
-		mI_Servicos_IPTU.setOnAction((e) -> {
-			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Classificacoes.IPTU);
+		mI_IPTU_Comparativos_Biguacu_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_COMPARATIVOS_BIGUACU_SC);
 
 		});
-		mI_Servicos_ENERGIA.setOnAction((e) -> {
-			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_ENERGIA, Enum_Aux_Servicos_Classificacoes.ENERGIA);
+		
+		mI_IPTU_Comparativos_Florianopolis_SC.setOnAction((e) -> {
+			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_COMPARATIVOS_FLORIANOPOLIS_SC);
 
 		});
-		mI_Servicos_AGUA.setOnAction((e) -> {
-			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_AGUA, Enum_Aux_Servicos_Classificacoes.AGUA);
+		
+		mI_IPTU_Comparativos_Palhoca_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_COMPARATIVOS_PALHOCA_SC);
 
 		});
-		mI_Servicos_CONDOMINIOS.setOnAction((e) -> {
-			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_CONDOMINIOS,
-					Enum_Aux_Servicos_Classificacoes.CONDOMINIO);
+		
+		mI_IPTU_Comparativos_Sao_Jose_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_COMPARATIVOS_SAO_JOSE_SC);
 
 		});
+		
+		
+		mI_IPTU_Conferencia_de_debito_Biguacu_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CONFERENCIA_DEBITOS_BIGUACU_SC);
+
+		});
+		
+		mI_IPTU_Conferencia_de_debito_Florianopolis_SC.setOnAction((e) -> {
+			chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CONFERENCIA_DEBITOS_FLORIANOPOLIS_SC);
+
+		});
+		
+		mI_IPTU_Conferencia_de_debito_Palhoca_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CONFERENCIA_DEBITOS_PALHOCA_SC);
+
+		});
+		
+		mI_IPTU_Conferencia_de_debito_Sao_Jose_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CONFERENCIA_DEBITOS_SAO_JOSE_SC);
+
+		});
+		
+		
+		mI_IPTU_DAMS_Biguacu_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_DAMS_BIGUACU_SC);
+
+		});
+		
+		mI_IPTU_DAMS_Florianopolis_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_DAMS_FLORIANOPOLIS_SC);
+
+		});
+		
+		mI_IPTU_DAMS_Palhoca_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_DAMS_PALHOCA_SC);
+
+		});
+		
+		mI_IPTU_DAMS_Sao_Jose_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_DAMS_SAO_JOSE_SC);
+
+		});
+		
+		
+		
+		
+		mI_IPTU_CNDS_Biguacu_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CNDS_BIGUACU_SC);
+
+		});
+		
+		mI_IPTU_CNDS_Florianopolis_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CNDS_FLORIANOPOLIS_SC);
+
+		});
+		
+		mI_IPTU_CNDS_Palhoca_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CNDS_PALHOCA_SC);
+
+		});
+		
+		mI_IPTU_CNDS_Sao_Jose_SC.setOnAction((e) -> {
+			//chamaformulariodeServicos(Enum_Aux_Formularios.FORM_IPTU, Enum_Aux_Servicos_Composicoes.IPTU_CNDS_SAO_JOSE_SC);
+
+		});
+		
 
 		verificaLiberacoesdeMenus();
 		configuraMenus();
@@ -85,10 +153,10 @@ public class Menu_Principal extends Menu_Principal_Controles implements Initiali
 	}
 
 	public void chamaformulariodeServicos(Enum_Aux_Formularios formulario_Atual,
-			Enum_Aux_Servicos_Classificacoes servicosClassificacoes) {
+			Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes) {
 		try {
 			Utilidades.getpPL().setFormulario_Atual(formulario_Atual);
-			Utilidades.getpPL().setServicosClassificacoes(servicosClassificacoes);
+			Utilidades.getpPL().setEnum_Aux_Servicos_Composicoes(enum_Aux_Servicos_Composicoes);
 			Parent protocolo = FXMLLoader.load(getClass().getClassLoader().getResource("protocolos_passoa.fxml"));
 			bp_Principal.setCenter(protocolo);
 			preencherodape();
@@ -123,18 +191,11 @@ public class Menu_Principal extends Menu_Principal_Controles implements Initiali
 		mI_Gerentes.setUserData(Enum_Aux_Formularios.CAD_GERENTES);
 		mI_Funcionarios.setUserData(Enum_Aux_Formularios.CAD_FUNCIONARIOS);
 		mI_Clientes.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
-		mI_Servicos_IPTU.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
-		mI_Servicos_ENERGIA.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
-		mI_Servicos_AGUA.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
-		mI_Servicos_CONDOMINIOS.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
+		
 		mI_Configurar_Servicos_Por_Contratante.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
 		mI_Configurar_Acessos_Por_Perfil.setUserData(Enum_Aux_Formularios.CAD_CLIENTES);
 
-		mI_Servicos_IPTU.setUserData(Enum_Aux_Formularios.FORM_IPTU);
-		mI_Servicos_ENERGIA.setUserData(Enum_Aux_Formularios.FORM_ENERGIA);
-		mI_Servicos_AGUA.setUserData(Enum_Aux_Formularios.FORM_AGUA);
-		mI_Servicos_CONDOMINIOS.setUserData(Enum_Aux_Formularios.FORM_CONDOMINIOS);
-
+		
 		mI_ProjetaBrasil = configuraAcessos(mI_ProjetaBrasil);
 		mI_Contratantes = configuraAcessos(mI_Contratantes);
 		mI_Administradores_GERAL = configuraAcessos(mI_Administradores_GERAL);
@@ -190,6 +251,7 @@ public class Menu_Principal extends Menu_Principal_Controles implements Initiali
 			mI_Funcionarios.setDisable(true);
 			mI_Clientes.setDisable(true);
 		}
+		
 	}
 
 	public boolean podeCadastrarAdministradores() {

@@ -11,13 +11,14 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import model.dao.InscricaoDAO;
-import model.dao.Inscricao_HistoricoDAO;
+import model.dao.Inscricao_Historico_DetalheDAO;
 import model.dao.PessoaDAO;
 import model.entities.Inscricao;
-import model.entities.Inscricao_Historico;
+import model.entities.Inscricao_Historico_Detalhe;
 import model.entities.Pessoa;
 import model.enums.Enum_Aux_Servicos_Classificacoes;
 import model.enums.Enum_Aux_Servicos_Sub_Classificacoes;
@@ -25,8 +26,10 @@ import model.enums.Enum_Aux_Sim_ou_Nao;
 import util.Utilidades;
 
 public class TestesBasicos {
-	@SuppressWarnings("static-access")
+	
+
 	@Test
+	@Ignore
 	public void testando() {
 
 		String request = "http://www.pmf.sc.gov.br/cgi-bin/tm38220.sh";
@@ -50,7 +53,7 @@ public class TestesBasicos {
 			String nInscricao = "INSCRICAO MUNICIPAL  :";
 			String endereco = "LOCALIZACAO IMOVEL   :";
 			String cpf_Cnpj = "NP/CPF/CGC           :";
-			
+
 			String anual = "ANUAL";
 			int seq = 5;
 			int radicalDam = 9;
@@ -70,18 +73,17 @@ public class TestesBasicos {
 			String multaStr = "";
 			String jurosStr = "";
 			String totalStr = "";
-			Inscricao_Historico iH = new Inscricao_Historico();
-			List<Inscricao_Historico> iHLista = new ArrayList<>();
+			Inscricao_Historico_Detalhe iH = new Inscricao_Historico_Detalhe();
+			List<Inscricao_Historico_Detalhe> iHLista = new ArrayList<>();
 			Inscricao insc = new Inscricao();
-			Inscricao_HistoricoDAO iHDAO = new Inscricao_HistoricoDAO();
+			Inscricao_Historico_DetalheDAO iHDAO = new Inscricao_Historico_DetalheDAO();
 			InscricaoDAO iDAO = new InscricaoDAO();
 			PessoaDAO pDAO = new PessoaDAO();
-			
 
 			String line;
-			
-			while ((line = br.readLine()) != null) {				
-				
+
+			while ((line = br.readLine()) != null) {
+
 				if (line.contains(proprietario))
 					proprietario = line.substring(proprietario.length() + 1, line.length());
 				else if (line.contains(nInscricao))
@@ -89,42 +91,39 @@ public class TestesBasicos {
 				else if (line.contains(endereco))
 					endereco = line.substring(endereco.length() + 1, line.length());
 				else if (line.contains(cpf_Cnpj))
-					cpf_Cnpj = line.substring(cpf_Cnpj.length() + 1, line.length());				
+					cpf_Cnpj = line.substring(cpf_Cnpj.length() + 1, line.length());
 				else if (line.contains(anual)) {
-					String montagem="";					
-		            int tam = 0;
-		            seqStr = line.substring(0,seq);
-		            montagem=seqStr;
-		            tam = montagem.length();		            
-		            radicalDamStr = line.substring(tam,tam+radicalDam);
-		            montagem+=radicalDamStr;
-		            tam = montagem.length();
-		            tributosStr = line.substring(tam,tam+tributos);
-		            montagem+=tributosStr;
-		            tam = montagem.length();
-		            processoStr = line.substring(tam,tam+processo);
-		            montagem+=processoStr;
-		            tam = montagem.length();
-		            parAbertoStr = line.substring(tam,tam+parAberto);
-		            montagem+=parAbertoStr;
-		            tam = montagem.length();
-		            valorStr = line.substring(tam,tam+valor);
-		            montagem+=valorStr;
-		            tam = montagem.length();
-		            multaStr = line.substring(tam,tam+multa);
-		            montagem+=multaStr;
-		            tam = montagem.length();
-		            jurosStr = line.substring(tam,tam+juros);
-		            montagem+=jurosStr;
-		            tam = montagem.length();
-		            totalStr = line.substring(tam,tam+total);
-		            montagem+=totalStr;
-		            tam = montagem.length();
-					
+					String montagem = "";
+					int tam = 0;
+					seqStr = line.substring(0, seq);
+					montagem = seqStr;
+					tam = montagem.length();
+					radicalDamStr = line.substring(tam, tam + radicalDam);
+					montagem += radicalDamStr;
+					tam = montagem.length();
+					tributosStr = line.substring(tam, tam + tributos);
+					montagem += tributosStr;
+					tam = montagem.length();
+					processoStr = line.substring(tam, tam + processo);
+					montagem += processoStr;
+					tam = montagem.length();
+					parAbertoStr = line.substring(tam, tam + parAberto);
+					montagem += parAbertoStr;
+					tam = montagem.length();
+					valorStr = line.substring(tam, tam + valor);
+					montagem += valorStr;
+					tam = montagem.length();
+					multaStr = line.substring(tam, tam + multa);
+					montagem += multaStr;
+					tam = montagem.length();
+					jurosStr = line.substring(tam, tam + juros);
+					montagem += jurosStr;
+					tam = montagem.length();
+					totalStr = line.substring(tam, tam + total);
+					montagem += totalStr;
+					tam = montagem.length();
 
-					
-					
-					insc.setnInsc(map.get("inscricao"));					
+					insc.setnInsc(map.get("inscricao"));
 					Pessoa p = pDAO.retornaPessoaPelocpf_Cnpj("27470300000190");
 					insc.setId_Mestre(p);
 					insc.setEnum_Aux_Servicos_Classificacoes(Enum_Aux_Servicos_Classificacoes.IPTU);
@@ -134,14 +133,14 @@ public class TestesBasicos {
 					insc.setProprietario(proprietario);
 					insc = iDAO.merge(insc);
 
-					Inscricao_Historico iHConf = new Inscricao_Historico();
+					Inscricao_Historico_Detalhe iHConf = new Inscricao_Historico_Detalhe();
 					iHConf.setId_Inscricao(insc);
-					radicalDamStr=Utilidades.retiraVazios(radicalDamStr);
+					radicalDamStr = Utilidades.retiraVazios(radicalDamStr);
 					iHConf.setRadicalDam(radicalDamStr);
 					iHConf.setEnum_Aux_Servicos_Sub_Classificacoes(
 							Enum_Aux_Servicos_Sub_Classificacoes.CONFERENCIA_DEBITOS);
-					iHConf.setParAberto(Utilidades.transformaemInteiro(parAbertoStr));
-					
+					iHConf.setParAberto("" + parAbertoStr);
+
 					iHConf = iHDAO.verificaSeExistePeloRadicalDam(iHConf);
 
 					if (iHConf == null) {
@@ -161,7 +160,7 @@ public class TestesBasicos {
 						iH.setJuros(jr);
 						iH.setPago(Enum_Aux_Sim_ou_Nao.NAO);
 						iH.setMulta(mt);
-						iH.setParAberto(Utilidades.transformaemInteiro(parAbertoStr));
+						iH.setParAberto("" + parAbertoStr);
 						iH.setProcesso(Utilidades.retiraVazios(processoStr));
 						iH.setRadicalDam(Utilidades.retiraVazios(radicalDamStr));
 						iH.setSeq(Utilidades.retiraVazios(seqStr));
@@ -175,31 +174,30 @@ public class TestesBasicos {
 				}
 			}
 			br.close();
-			
-			if(iHLista.size()>0) {				
-				Inscricao_Historico iHConf = new Inscricao_Historico();
-				insc.setnInsc(map.get("inscricao"));					
+
+			if (iHLista.size() > 0) {
+				Inscricao_Historico_Detalhe iHConf = new Inscricao_Historico_Detalhe();
+				insc.setnInsc(map.get("inscricao"));
 				Pessoa p = pDAO.retornaPessoaPelocpf_Cnpj("27470300000190");
 				insc.setId_Mestre(p);
 				insc.setEnum_Aux_Servicos_Classificacoes(Enum_Aux_Servicos_Classificacoes.IPTU);
 				insc = iDAO.verificaSeExiste(insc);
-				
-				iHConf.setId_Inscricao(insc);		
+
+				iHConf.setId_Inscricao(insc);
 				iHConf.setPago(Enum_Aux_Sim_ou_Nao.NAO);
 				iHConf.setEnum_Aux_Servicos_Sub_Classificacoes(
 						Enum_Aux_Servicos_Sub_Classificacoes.CONFERENCIA_DEBITOS);
-				List<Inscricao_Historico> iHListaCompleta  =iHDAO.reTornaLista(iHConf);
+				List<Inscricao_Historico_Detalhe> iHListaCompleta = iHDAO.reTornaLista(iHConf);
 				iHListaCompleta.removeAll(iHLista);
 				// pega a relação que existe atuamente que acabou de ser consultada
 				// retira esta relação(que está em aberta) da lista que está no banco de dados
 				// fica só o restante que foi pago
 				// DAR BAIXA
-				for (Inscricao_Historico iH1 : iHListaCompleta) {
+				for (Inscricao_Historico_Detalhe iH1 : iHListaCompleta) {
 					iH1.setPago(Enum_Aux_Sim_ou_Nao.SIM);
 					iHDAO.merge(iH1);
 				}
 			}
-			
 
 		} catch (
 

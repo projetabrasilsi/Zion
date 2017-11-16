@@ -8,7 +8,7 @@ import model.entities.Pessoa;
 import model.entities.Pessoa_Perfil_e_Vinculo;
 import model.enums.Enum_Aux_Formularios;
 import model.enums.Enum_Aux_Perfil_Pessoa;
-import model.enums.Enum_Aux_Servicos_Classificacoes;
+import model.enums.Enum_Aux_Servicos_Composicoes;
 
 public class Perfil_Pessoa_Logada {
 	
@@ -21,15 +21,9 @@ public class Perfil_Pessoa_Logada {
 	private boolean existemPessoasCadatradas = false;
 	private Acessos acessos;
 	private boolean vinculoproprio = true;
-	private Enum_Aux_Servicos_Classificacoes servicosClassificacoes;
+	private Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes;
+	private Pessoa_Perfil_e_Vinculo ppv;
 	
-	public Enum_Aux_Servicos_Classificacoes getServicosClassificacoes() {
-		return servicosClassificacoes;
-	}
-
-	public void setServicosClassificacoes(Enum_Aux_Servicos_Classificacoes servicosClassificacoes) {
-		this.servicosClassificacoes = servicosClassificacoes;
-	}
 
 	public Perfil_Pessoa_Logada() {
 		super();
@@ -120,6 +114,22 @@ public class Perfil_Pessoa_Logada {
 
 	public void setVinculoproprio(boolean vinculoproprio) {
 		this.vinculoproprio = vinculoproprio;
+	}
+
+	public Enum_Aux_Servicos_Composicoes getEnum_Aux_Servicos_Composicoes() {
+		return enum_Aux_Servicos_Composicoes;
+	}
+
+	public void setEnum_Aux_Servicos_Composicoes(Enum_Aux_Servicos_Composicoes enum_Aux_Servicos_Composicoes) {
+		this.enum_Aux_Servicos_Composicoes = enum_Aux_Servicos_Composicoes;
+	}
+
+	public Pessoa_Perfil_e_Vinculo getPpv() {
+		return ppv;
+	}
+
+	public void setPpv(Pessoa_Perfil_e_Vinculo ppv) {
+		this.ppv = ppv;
 	}
 
 	

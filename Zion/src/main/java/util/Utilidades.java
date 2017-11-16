@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -84,7 +85,9 @@ public class Utilidades implements Serializable {
 	private static String textoLabel;
 	private static boolean ok;
 	private static boolean finalizado = false;
-	private static String textodeRetorno = "";  
+	private static String textodeRetorno = "";
+	
+	
 
 	
 
@@ -516,6 +519,46 @@ public class Utilidades implements Serializable {
 		int year = now.get(Calendar.MONTH);
 		return year;
 	}
+	public static int retornaDia() {
+		Calendar now = Calendar.getInstance();   // Gets the current date and time
+		int day = now.get(Calendar.DAY_OF_MONTH);
+		return day;
+	}
+	public static boolean verificaSeArquivoExiste(String diretorio, String arq) {		
+		FileFilter filter = new FileFilter() {  
+		    public boolean accept(File file) {  
+		        return file.getName().endsWith(arq);  
+		    }  
+		};
+
+		File dir = new File(diretorio);  
+		File[] files = dir.listFiles(filter);
+		
+		
+		if(files != null && files.length>0)
+		return true;
+		else
+			return false;
+		
+		
+	}
+	public static File retornaUmArquivoExistente(String diretorio, String arq) {
+		File f = null;
+        
+        // diretório que será listado.
+        File baseFolder = new File(diretorio);
+        // obtem a lista de arquivos
+        File[] files = baseFolder.listFiles();
+        
+		for (int i = 0; i < files.length; i++) {
+            File file = files[i];
+            if (file.getPath().endsWith(arq)) {                
+                f = file;
+                break;
+            }
+        }
+		return f;
+	}
 
 	public static Calendar retornaCalendario() {
 
@@ -915,6 +958,7 @@ public class Utilidades implements Serializable {
 		return no;
 	}
 
+	
 	public Object instanciar_Classe(String classe) {
 		Object obj = null;
 		try {
@@ -1055,4 +1099,14 @@ public class Utilidades implements Serializable {
 		Utilidades.finalizado = finalizado;
 	}
 
+
+
+
+
+
+
+
+
+
+	
 }

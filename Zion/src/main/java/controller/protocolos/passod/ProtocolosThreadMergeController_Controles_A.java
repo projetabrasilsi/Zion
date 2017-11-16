@@ -16,7 +16,7 @@ import model.entities.Inscricao;
 import model.entities.Pessoa;
 import model.entities.ProtocolosdeServicos_Detalhe;
 
-public class ProtocolosThreadMergeController_Controles_A extends ProtocolosThreadMergeController_Controles_B {
+public class ProtocolosThreadMergeController_Controles_A  {
 	
 	@FXML protected AnchorPane aPane = new AnchorPane();
 	@FXML protected TableView<ProtocolosdeServicos_Detalhe> tV_ProtServicos_Detalhe = new TableView<ProtocolosdeServicos_Detalhe>();
@@ -26,9 +26,6 @@ public class ProtocolosThreadMergeController_Controles_A extends ProtocolosThrea
 	@FXML protected TableColumn<ProtocolosdeServicos_Detalhe, Double> tC_Valor_Anterior = new TableColumn<>("Valor Anterior");
 	@FXML protected TableColumn<ProtocolosdeServicos_Detalhe, Double> tC_Diferenca = new TableColumn<>("Diferença");
 	@FXML protected TableColumn<ProtocolosdeServicos_Detalhe, Double> tC_Percentual = new TableColumn<>("Percentual");
-	
-	
-	
 	@FXML
 	protected TableColumn<ProtocolosdeServicos_Detalhe, Calendar> tC_Data_Hora = new TableColumn<>(
 			"Última Atualização");
@@ -41,6 +38,10 @@ public class ProtocolosThreadMergeController_Controles_A extends ProtocolosThrea
 	protected Label lb_Titulo_Merge = new Label();
 	@FXML
 	protected Label lb_Titulo_Tela = new Label();
+	@FXML
+	protected Label lb_Etapas = new Label();
+	
+	
 	@FXML
 	protected AnchorPane aP_Protocolo_Novo = new AnchorPane();
 	@FXML

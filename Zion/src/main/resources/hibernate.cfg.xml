@@ -9,33 +9,23 @@
 
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		
-		
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Zion</property> 
-		<property name="hibernate.connection.username">postgres</property> 
-		<property name="hibernate.connection.password">P2a3u0l9</property> 
-		
- 
-		
-
-		<!-- 
-		
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Zion</property> 
-		<property name="hibernate.connection.username">postgres</property> 
-		<property name="hibernate.connection.password">p2a3u0l9</property> 
-		
-		
-		
-		<property name="hibernate.connection.url">jdbc:postgresql://node126887-projetabrasil.jelasticlw.com.br/ProjetaBrasil </property> 
-		<property name="hibernate.connection.username">webadmin</property>
-		<property name="hibernate.connection.password">pMOrtIm2tF</property>
 
 
-		<property name="hibernate.connection.url">jdbc:postgresql://179.188.20.241:5432/Zion</property> 												   
-		<property name="hibernate.connection.username">webadmin</property>
-		<property name="hibernate.connection.password">pMOrtIm2tF</property>
-		
-		-->
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Zion</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">P2a3u0l9</property>
+
+
+
+
+		<!-- <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Zion</property> 
+			<property name="hibernate.connection.username">postgres</property> <property 
+			name="hibernate.connection.password">p2a3u0l9</property> <property name="hibernate.connection.url">jdbc:postgresql://node126887-projetabrasil.jelasticlw.com.br/ProjetaBrasil 
+			</property> <property name="hibernate.connection.username">webadmin</property> 
+			<property name="hibernate.connection.password">pMOrtIm2tF</property> <property 
+			name="hibernate.connection.url">jdbc:postgresql://179.188.20.241:5432/Zion</property> 
+			<property name="hibernate.connection.username">webadmin</property> <property 
+			name="hibernate.connection.password">pMOrtIm2tF</property> -->
 
 
 		<property name="hibernate.c3p0.min_size">5</property>
@@ -54,9 +44,11 @@
 
 
 		<!-- Cache de Segundo Nível -->
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
-
-		<!-- Mostra as SQLs Geradas -->		
+		<!-- Mostra o console -->
+		<property name="show_sql">true</property>
+		<!-- Mostra as SQLs Geradas -->
 		<property name="hibernate.show_sql">false</property>
 		<property name="hibernate.format_sql">false</property>
 
@@ -64,19 +56,21 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 
-		<!-- Mapeamento das entidades -->		
-		
+		<!-- Mapeamento das entidades -->
+
 		<mapping class="model.entities.Bairro" />
 		<mapping class="model.entities.Cidade" />
 		<mapping class="model.entities.Contato" />
-		
+
 		<mapping class="model.entities.Endereco" />
 		<mapping class="model.entities.Estado" />
 		<mapping class="model.entities.Inscricao" />
-		<mapping class="model.entities.Inscricao_Historico" />
+		<mapping class="model.entities.Inscricao_Historico_Detalhe" />
+		<mapping class="model.entities.Inscricao_Historico_Header" />
+		
 		<mapping class="model.entities.Bairro" />
 		<mapping class="model.entities.Logradouro" />
-		<mapping class="model.entities.Pais" />				
+		<mapping class="model.entities.Pais" />
 		<mapping class="model.entities.Pessoa_Perfil_e_Vinculo" />
 		<mapping class="model.entities.Pessoa" />
 		<mapping class="model.entities.Profissao" />
@@ -84,7 +78,7 @@
 		<mapping class="model.entities.ProtocolosdeServicos_Detalhe" />
 		<mapping class="model.entities.ProtocolosdeServicos" />
 		<mapping class="model.entities.Usuario" />
-		
+
 	</session-factory>
 
 </hibernate-configuration>

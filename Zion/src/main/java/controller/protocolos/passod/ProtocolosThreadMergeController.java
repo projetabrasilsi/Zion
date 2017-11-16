@@ -11,16 +11,14 @@ public class ProtocolosThreadMergeController extends ProtocolosThreadMergeContro
 		implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		ProtocoloController_ControlesGerais_A.evoluisequencia();
+		lb_Etapas.setText(ProtocoloController_ControlesGerais_A.getSequencia());		
 		bt_Fechar.setVisible(false);
 		bt_Fechar.setDisable(true);
 		lb_Titulo_Merge.setPrefWidth(tV_ProtServicos_Detalhe.getPrefWidth());
 		lb_Titulo_Tela.setPrefWidth(tV_ProtServicos_Detalhe.getPrefWidth());
-		//pBar.setPrefWidth(tV_ProtServicos_Detalhe.getPrefWidth());
-		//pBI.setPrefWidth(tV_ProtServicos_Detalhe.getPrefWidth());
 		ProtocoloController_ControlesGerais_A.setProtocolosdeServicos_DetalheLista(new ArrayList<>());
-		inicializaEventos();
-		inicializarObservadores();
-
+		inicializaEventos();	
 		ProtocoloController_ControlesGerais_A.zeraContagemRegistros();
 		if (ProtocoloController_ControlesGerais_A.getEnum_Aux_Servicos_Composicoes().getSub_Classificacao().isComparativo()) {
 				ProtocoloController_ControlesGerais_A.setnRegAnt(ProtocoloController_ControlesGerais_A.getComparativos_1().size());

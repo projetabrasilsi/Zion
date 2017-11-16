@@ -2,6 +2,8 @@ package controller.pessoas;
 
 import java.util.List;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
+
 import model.dao.Pessoa_Perfil_e_VinculoDAO;
 import model.dao.UsuarioDAO;
 import model.entities.Pessoa;
@@ -26,9 +28,15 @@ public class Metodos_C extends Metodos_D {
 	}
 
 	public Usuario usuario_Merge(Usuario us, Pessoa responsavel) {
+		if(us.getConfSenha()!= null && us.getConfSenha().length()>0) {
+		SimpleHash hash = new SimpleHash("md5",us.getConfSenha());		
+		us.setSenha(hash.toHex());
+		}
+		
 		us.setId_Empresa(1);
 		us.setUltimaAtualizacao(Utilidades.retornaCalendario());
 		us.setId_Pessoa_Registro(responsavel);
+		
 		UsuarioDAO dao = new UsuarioDAO();
 		return dao.merge(us);
 	}
@@ -43,9 +51,9 @@ public class Metodos_C extends Metodos_D {
 				if (u.getId_Pessoa() == null || u.getId_Pessoa() != getPessoa())
 					setUsuario(new Usuario(getPessoa()));
 
-				if (psf_Senha.getText().length() <= 0)					
+				if (psf_Senha.getText().length() <= 0)
 					psf_Senha.setText(getUsuario().getSenha());
-				
+
 				psf_ConfSenha.setText(psf_Senha.getText());
 
 			}
@@ -53,8 +61,7 @@ public class Metodos_C extends Metodos_D {
 		} else {
 			u.setSenha(psf_Senha.getText());
 			u.setConfSenha(psf_ConfSenha.getText());
-			
-			
+
 		}
 		return u;
 	}
@@ -66,7 +73,6 @@ public class Metodos_C extends Metodos_D {
 		return dao.Pessoa_Perfil_e_VinculoLista(pPV, true, true);
 	}
 
-	
 	public List<Pessoa_Perfil_e_Vinculo> CarregaControlesVisuaisPessoa_Perfil_E_Vinculo(boolean carregar,
 			List<Pessoa_Perfil_e_Vinculo> pPVs, Enum_Aux_Formularios form_Atual) {
 		if (carregar) {
@@ -79,7 +85,7 @@ public class Metodos_C extends Metodos_D {
 
 		} else {
 			if (perfilPessoaObsList.size() > 0) {
-				pPVs =  perfilPessoaObsList.subList(0, perfilPessoaObsList.size()-1) ;
+				pPVs = perfilPessoaObsList.subList(0, perfilPessoaObsList.size() - 1);
 			} else
 				pPVs.clear();
 

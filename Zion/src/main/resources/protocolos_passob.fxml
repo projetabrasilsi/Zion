@@ -8,22 +8,18 @@
 
 <AnchorPane fx:id="aP_Protocolo_Novo" prefHeight="245.0" prefWidth="452.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.protocolos.passob.ProtocolosNovosController">
    <children>
-      <Button fx:id="bt_Confirmar" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefWidth="212.0" text="Confirmar" />
-      <Button fx:id="bt_Cancelar" layoutX="229.0" layoutY="200.0" mnemonicParsing="false" prefWidth="212.0" text="Cancelar" />
-      <Label fx:id="lb_Tipo_Servico" layoutX="11.0" layoutY="60.0" text="Escolha o Tipo de Serviço" />
-      <Label fx:id="lb_Escolha_Restricao" layoutX="229.0" layoutY="60.0" text="Escolha a Restriçao" />
-      <ComboBox fx:id="cB_Escolha_Restricao" layoutX="229.0" layoutY="76.0" prefHeight="29.0" prefWidth="212.0" />
-      <ComboBox fx:id="cB_Sub_Classificacao" layoutX="11.0" layoutY="76.0" prefHeight="29.0" prefWidth="212.0" />
-      <Button fx:id="bt_Escolher_Arquivo_1" layoutX="11.0" layoutY="159.0" mnemonicParsing="false" prefWidth="212.0" text="Buscar Arquivo 1" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="229.0" />
-      <Label fx:id="lb_Inscricoes" alignment="CENTER" layoutX="1.0" layoutY="8.0" prefHeight="45.0" prefWidth="446.0" text="Escolha o Tipo de Serviço" textFill="#13d114" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="8.0">
+      <Button fx:id="bt_Confirmar" layoutX="11.0" layoutY="160.0" mnemonicParsing="false" prefWidth="212.0" text="Confirmar" />
+      <Button fx:id="bt_Cancelar" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" prefWidth="212.0" text="Cancelar" />
+      <Button fx:id="bt_Escolher_Arquivo_1" layoutX="11.0" layoutY="119.0" mnemonicParsing="false" prefWidth="212.0" text="Buscar Arquivo 1" />
+      <Label fx:id="lb_Inscricoes" alignment="CENTER" layoutX="1.0" layoutY="8.0" prefHeight="45.0" prefWidth="446.0" text="Importação de Arquivo" textFill="#13d114" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="8.0">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="lb_Comp_1" layoutX="11.0" layoutY="107.0" text="Informe o ano de Comparaçao - 1" />
-      <Label fx:id="lb_Comp_2" layoutX="229.0" layoutY="107.0" text="Informe o ano de Comparaçao - 2" />
-      <ComboBox fx:id="cB_Comp_2" layoutX="229.0" layoutY="123.0" prefHeight="29.0" prefWidth="212.0" />
-      <ComboBox fx:id="cB_Comp_1" layoutX="11.0" layoutY="123.0" prefHeight="29.0" prefWidth="212.0" />
-      <Button fx:id="bt_Escolher_Arquivo_2" layoutX="229.0" layoutY="159.0" mnemonicParsing="false" prefWidth="212.0" text="Buscar Arquivo 2" />
+      <Label fx:id="lb_Comp_1" layoutX="11.0" layoutY="67.0" text="Informe o ano de Comparaçao - 1" />
+      <Label fx:id="lb_Comp_2" layoutX="229.0" layoutY="67.0" text="Informe o ano de Comparaçao - 2" />
+      <ComboBox fx:id="cB_Comp_2" layoutX="229.0" layoutY="83.0" prefHeight="29.0" prefWidth="212.0" />
+      <ComboBox fx:id="cB_Comp_1" layoutX="11.0" layoutY="83.0" prefHeight="29.0" prefWidth="212.0" />
+      <Button fx:id="bt_Escolher_Arquivo_2" layoutX="229.0" layoutY="119.0" mnemonicParsing="false" prefWidth="212.0" text="Buscar Arquivo 2" />
    </children>
 </AnchorPane>

@@ -54,6 +54,12 @@ public class Menu_Principal_Controles  extends AplicacaoControles {
 	@FXML protected MenuItem mI_IPTU_DAMS_Florianopolis_SC = new MenuItem();
 	@FXML protected MenuItem mI_IPTU_DAMS_Palhoca_SC = new MenuItem();
 	@FXML protected MenuItem mI_IPTU_DAMS_Sao_Jose_SC = new MenuItem(); 
+	
+	@FXML protected MenuItem mI_IPTU_CNDS_Biguacu_SC = new MenuItem();
+	@FXML protected MenuItem mI_IPTU_CNDS_Florianopolis_SC = new MenuItem();
+	@FXML protected MenuItem mI_IPTU_CNDS_Palhoca_SC = new MenuItem();
+	@FXML protected MenuItem mI_IPTU_CNDS_Sao_Jose_SC = new MenuItem();
+	
 	@FXML protected Menu menu_IPTU_Comparativos = new Menu();
 	@FXML protected MenuItem mI_IPTU_Comparativos_Biguacu_SC = new MenuItem();
 	@FXML protected MenuItem mI_IPTU_Comparativos_Florianopolis_SC = new MenuItem();
@@ -73,10 +79,7 @@ public class Menu_Principal_Controles  extends AplicacaoControles {
 	
 	
 	
-	@FXML protected MenuItem  mI_Servicos_IPTU =  new MenuItem ();
-	@FXML protected MenuItem  mI_Servicos_ENERGIA =  new MenuItem ();
-	@FXML protected MenuItem  mI_Servicos_AGUA =  new MenuItem ();
-	@FXML protected MenuItem  mI_Servicos_CONDOMINIOS =  new MenuItem ();
+	
 
 	@FXML protected AnchorPane ap_Pessoas = new AnchorPane();
 	@FXML protected BorderPane bp_Principal = new BorderPane();

@@ -1,92 +1,104 @@
 package controller.protocolos.controlesgerais;
 
-import java.util.ArrayList;
-import java.util.List;
+public class ProtocoloController_ControlesGerais_E extends ProtocoloController_ControlesGerais_F {
+	protected static double vlTotAnt = 0;
+	protected static int nRegPermanentes = 0;
+	protected static double vlTotSomenteAnt = 0;
+	protected static double vlTotSomenteAtual = 0;
+	protected static double vlTotPermaneceu = 0;
+	protected static double vlTotAumentou = 0;
+	protected static double vlTotDiminuiu = 0;
+	protected static int nRegAumentouValor = 0;
+	protected static int nRegDiminuiValor = 0;
+	protected static int nRegPermaneceuValor = 0;
+	protected static double vlTotPermaneceuValor = 0;
 
-import model.enums.Enum_Aux_Servicos_Classificacoes;
-import model.enums.Enum_Aux_Servicos_Composicoes;
-import model.enums.Enum_Aux_Servicos_Restricoes;
-import model.enums.Enum_Aux_Servicos_Sub_Classificacoes;
+	public static double getVlTotAnt() {
+		return vlTotAnt;
+	}
 
-public class ProtocoloController_ControlesGerais_E {
-	protected static int nLista = 1;	
-	protected static int MesAnt = 0;		
-	protected static int MesAtual = 0;
-	protected static Enum_Aux_Servicos_Classificacoes ServicosClassificacoes;
-	protected static Enum_Aux_Servicos_Restricoes servicosrestricoes;
-	protected static Enum_Aux_Servicos_Sub_Classificacoes servicosSubClassificacoes;
-	
-	protected static List<Enum_Aux_Servicos_Classificacoes> listaClassificacoes = new ArrayList<>();
-	protected static List<Enum_Aux_Servicos_Sub_Classificacoes> listaSubClassificacoes = new ArrayList<>();
-	protected static List<Enum_Aux_Servicos_Restricoes> listaRestricoes = new ArrayList<>();
-	protected static List<Enum_Aux_Servicos_Composicoes> listaComposicoes = new ArrayList<>();	 
-	protected static Thread sync = new Thread();
-	
-	public static void setnLista(int nLista) {
-		ProtocoloController_ControlesGerais_E.nLista = nLista;
+	public static void setVlTotAnt(double vlTotAnt) {
+		ProtocoloController_ControlesGerais_E.vlTotAnt = vlTotAnt;
 	}
-	public static int getMesAnt() {
-		return MesAnt;
+
+	public static int getnRegPermanentes() {
+		return nRegPermanentes;
 	}
-	public static void setMesAnt(int mesAnt) {
-		MesAnt = mesAnt;
+
+	public static void setnRegPermanentes(int nRegPermanentes) {
+		ProtocoloController_ControlesGerais_E.nRegPermanentes = nRegPermanentes;
 	}
-	public static int getMesAtual() {
-		return MesAtual;
+
+	public static double getVlTotSomenteAnt() {
+		return vlTotSomenteAnt;
 	}
-	public static void setMesAtual(int mesAtual) {
-		MesAtual = mesAtual;
+
+	public static void setVlTotSomenteAnt(double vlTotSomenteAnt) {
+		ProtocoloController_ControlesGerais_E.vlTotSomenteAnt = vlTotSomenteAnt;
 	}
-	public static Enum_Aux_Servicos_Classificacoes getServicosClassificacoes() {
-		return ServicosClassificacoes;
+
+	public static double getVlTotSomenteAtual() {
+		return vlTotSomenteAtual;
 	}
-	public static void setServicosClassificacoes(Enum_Aux_Servicos_Classificacoes servicosClassificacoes) {
-		ServicosClassificacoes = servicosClassificacoes;
+
+	public static void setVlTotSomenteAtual(double vlTotSomenteAtual) {
+		ProtocoloController_ControlesGerais_E.vlTotSomenteAtual = vlTotSomenteAtual;
 	}
-	public static Enum_Aux_Servicos_Restricoes getServicosrestricoes() {
-		return servicosrestricoes;
+
+	public static double getVlTotPermaneceu() {
+		return vlTotPermaneceu;
 	}
-	public static void setServicosrestricoes(Enum_Aux_Servicos_Restricoes servicosrestricoes) {
-		ProtocoloController_ControlesGerais_E.servicosrestricoes = servicosrestricoes;
+
+	public static void setVlTotPermaneceu(double vlTotPermaneceu) {
+		ProtocoloController_ControlesGerais_E.vlTotPermaneceu = vlTotPermaneceu;
 	}
-	public static Enum_Aux_Servicos_Sub_Classificacoes getServicosSubClassificacoes() {
-		return servicosSubClassificacoes;
+
+	public static double getVlTotAumentou() {
+		return vlTotAumentou;
 	}
-	public static void setServicosSubClassificacoes(Enum_Aux_Servicos_Sub_Classificacoes servicosSubClassificacoes) {
-		ProtocoloController_ControlesGerais_E.servicosSubClassificacoes = servicosSubClassificacoes;
+
+	public static void setVlTotAumentou(double vlTotAumentou) {
+		ProtocoloController_ControlesGerais_E.vlTotAumentou = vlTotAumentou;
 	}
-	
-	public static List<Enum_Aux_Servicos_Classificacoes> getListaClassificacoes() {
-		return listaClassificacoes;
+
+	public static double getVlTotDiminuiu() {
+		return vlTotDiminuiu;
 	}
-	public static void setListaClassificacoes(List<Enum_Aux_Servicos_Classificacoes> listaClassificacoes) {
-		ProtocoloController_ControlesGerais_E.listaClassificacoes = listaClassificacoes;
+
+	public static void setVlTotDiminuiu(double vlTotDiminuiu) {
+		ProtocoloController_ControlesGerais_E.vlTotDiminuiu = vlTotDiminuiu;
 	}
-	public static List<Enum_Aux_Servicos_Sub_Classificacoes> getListaSubClassificacoes() {
-		return listaSubClassificacoes;
+
+	public static int getnRegAumentouValor() {
+		return nRegAumentouValor;
 	}
-	public static void setListaSubClassificacoes(List<Enum_Aux_Servicos_Sub_Classificacoes> listaSubClassificacoes) {
-		ProtocoloController_ControlesGerais_E.listaSubClassificacoes = listaSubClassificacoes;
+
+	public static void setnRegAumentouValor(int nRegAumentouValor) {
+		ProtocoloController_ControlesGerais_E.nRegAumentouValor = nRegAumentouValor;
 	}
-	public static List<Enum_Aux_Servicos_Restricoes> getListaRestricoes() {
-		return listaRestricoes;
+
+	public static int getnRegDiminuiValor() {
+		return nRegDiminuiValor;
 	}
-	public static void setListaRestricoes(List<Enum_Aux_Servicos_Restricoes> listaRestricoes) {
-		ProtocoloController_ControlesGerais_E.listaRestricoes = listaRestricoes;
+
+	public static void setnRegDiminuiValor(int nRegDiminuiValor) {
+		ProtocoloController_ControlesGerais_E.nRegDiminuiValor = nRegDiminuiValor;
 	}
-	public static List<Enum_Aux_Servicos_Composicoes> getListaComposicoes() {
-		return listaComposicoes;
+
+	public static int getnRegPermaneceuValor() {
+		return nRegPermaneceuValor;
 	}
-	public static void setListaComposicoes(List<Enum_Aux_Servicos_Composicoes> listaComposicoes) {
-		ProtocoloController_ControlesGerais_E.listaComposicoes = listaComposicoes;
+
+	public static void setnRegPermaneceuValor(int nRegPermaneceuValor) {
+		ProtocoloController_ControlesGerais_E.nRegPermaneceuValor = nRegPermaneceuValor;
 	}
-	public static Thread getSync() {
-		return sync;
+
+	public static double getVlTotPermaneceuValor() {
+		return vlTotPermaneceuValor;
 	}
-	public static void setSync(Thread sync) {
-		ProtocoloController_ControlesGerais_E.sync = sync;
+
+	public static void setVlTotPermaneceuValor(double vlTotPermaneceuValor) {
+		ProtocoloController_ControlesGerais_E.vlTotPermaneceuValor = vlTotPermaneceuValor;
 	}
-	public static int getnLista() {
-		return nLista;
-	}	
+
 }

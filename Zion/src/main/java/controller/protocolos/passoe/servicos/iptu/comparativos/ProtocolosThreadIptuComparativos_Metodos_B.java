@@ -1,115 +1,98 @@
 package controller.protocolos.passoe.servicos.iptu.comparativos;
 
-import java.util.Calendar;
-import java.util.Collections;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.SortType;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
-import model.entities.Inscricao;
-import model.entities.Pessoa;
+import controller.protocolos.controlesgerais.ProtocoloController_ControlesGerais_A;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import model.dao.Inscricao_Historico_DetalheDAO;
+import model.entities.Inscricao_Historico_Detalhe;
 import model.entities.ProtocolosdeServicos_Detalhe;
+import model.enums.Enum_Aux_Comparativos_Resultados;
 
-public class ProtocolosThreadIptuComparativos_Metodos_B extends  ProtocolosThreadIptuComparativos_Metodos_C {
-	public void configuraTableView_1() {
-		final ComboBox<TableColumn<ProtocolosdeServicos_Detalhe, ?>> sortCombo = new ComboBox<>(
-				tV_ProtServicos_Detalhe.getColumns());
+public class ProtocolosThreadIptuComparativos_Metodos_B extends ProtocolosThreadIptuComparativos_Controles {
+	public ProtocolosdeServicos_Detalhe geraComparativos(ProtocolosdeServicos_Detalhe pd) {
+		Inscricao_Historico_Detalhe iH1 = new Inscricao_Historico_Detalhe();
+		Inscricao_Historico_Detalhe iH2 = new Inscricao_Historico_Detalhe();
+		iH1.setEnum_Aux_Servicos_Sub_Classificacoes(
+				ProtocoloController_ControlesGerais_A.getEnum_Aux_Servicos_Composicoes().getSub_Classificacao());
+		iH1.setId_Inscricao(pd.getId_Inscricao());
+		iH1.setAno_Ref(ProtocoloController_ControlesGerais_A.getAnoAnt());
+		iH2.setEnum_Aux_Servicos_Sub_Classificacoes(
+				ProtocoloController_ControlesGerais_A.getEnum_Aux_Servicos_Composicoes().getSub_Classificacao());
+		iH2.setId_Inscricao(pd.getId_Inscricao());
+		iH2.setAno_Ref(ProtocoloController_ControlesGerais_A.getAnoAtual());
+		iH1 = verificaSeInscHisotircoExiste(iH1);
+		iH2 = verificaSeInscHisotircoExiste(iH2);
+		pd.setAnoAtual(ProtocoloController_ControlesGerais_A.getAnoAtual());
+		pd.setMesAtual(0);
+		pd.setAnoAnt(ProtocoloController_ControlesGerais_A.getAnoAnt());
+		pd.setMesAnt(0);
+		if (iH1 == null)
+			pd.setValorAnt(0);
+		else
+			pd.setValorAnt(iH1.getValor());
+		if (iH2 == null)
+			pd.setValorAtual(0);
+		else
+			pd.setValorAtual(iH2.getValor());
 
-		final Callback<ListView<TableColumn<ProtocolosdeServicos_Detalhe, ?>>, ListCell<TableColumn<ProtocolosdeServicos_Detalhe, ?>>> cellFactory = new Callback<ListView<TableColumn<ProtocolosdeServicos_Detalhe, ?>>, ListCell<TableColumn<ProtocolosdeServicos_Detalhe, ?>>>() {
-			@Override
-			public ListCell<TableColumn<ProtocolosdeServicos_Detalhe, ?>> call(
-					ListView<TableColumn<ProtocolosdeServicos_Detalhe, ?>> listView) {
-				return createListCell();
+		if (pd.getValorAnt() > 0 && pd.getValorAtual() > 0) {
+			if (pd.getValorAnt() > pd.getValorAtual()) {
+				pd.setEnum_Aux_Comparativos_Resultados(Enum_Aux_Comparativos_Resultados.DIMINIUIU);
+				pd.setDiferenca(pd.getValorAnt() - pd.getValorAtual());
+			} else if (pd.getValorAnt() < pd.getValorAtual()) {
+				pd.setEnum_Aux_Comparativos_Resultados(Enum_Aux_Comparativos_Resultados.AUMENTOU);
+				pd.setDiferenca(pd.getValorAtual() - pd.getValorAnt());
+			} else {
+				pd.setDiferenca(0);
+				pd.setEnum_Aux_Comparativos_Resultados(Enum_Aux_Comparativos_Resultados.MANTEVE);
 			}
-		};
-		sortCombo.setCellFactory(cellFactory);
-		sortCombo.setButtonCell(createListCell());
-		sortCombo.valueProperty().addListener(new ChangeListener<TableColumn<ProtocolosdeServicos_Detalhe, ?>>() {
-			@Override
-			public void changed(ObservableValue<? extends TableColumn<ProtocolosdeServicos_Detalhe, ?>> obs,
-					TableColumn<ProtocolosdeServicos_Detalhe, ?> oldCol,
-					TableColumn<ProtocolosdeServicos_Detalhe, ?> newCol) {
-				if (newCol != null) {
-					tV_ProtServicos_Detalhe.getSortOrder().setAll(Collections.singletonList(newCol));
-					newCol.setSortType(SortType.ASCENDING);
-				} else {
-					tV_ProtServicos_Detalhe.getSortOrder().clear();
-				}
-			}
-		});
-		aPane.getChildren().add(sortCombo);
-		tV_ProtServicos_Detalhe.getSortOrder()
-				.addListener(new ListChangeListener<TableColumn<ProtocolosdeServicos_Detalhe, ?>>() {
-					@Override
-					public void onChanged(Change<? extends TableColumn<ProtocolosdeServicos_Detalhe, ?>> change) {
-						while (change.next()) {
-							if (change.wasAdded()) {
-								sortCombo.setValue(tV_ProtServicos_Detalhe.getSortOrder().get(0));
-							}
-						}
-					}
-				});
-
-	}
-
-	private ListCell<TableColumn<ProtocolosdeServicos_Detalhe, ?>> createListCell() {
-		final ListCell<TableColumn<ProtocolosdeServicos_Detalhe, ?>> cell = new ListCell<>();
-		cell.itemProperty().addListener(new ChangeListener<TableColumn<ProtocolosdeServicos_Detalhe, ?>>() {
-			@Override
-			public void changed(ObservableValue<? extends TableColumn<ProtocolosdeServicos_Detalhe, ?>> obs,
-					TableColumn<ProtocolosdeServicos_Detalhe, ?> oldColumn,
-					TableColumn<ProtocolosdeServicos_Detalhe, ?> newColumn) {
-				if (newColumn == null) {
-					cell.setText(null);
-				} else {
-					cell.setText(newColumn.getText());
-				}
-			}
-		});
-		return cell;
-	}
-	
-	public void configuraTableView_2() {
-		tC_Contador.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Integer>("contador"));
-		tC_Contador.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Contador.setPrefWidth(80);
-		tC_Valor_Anterior
-				.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Double>("valorAnt"));
-		tC_Valor_Anterior.setPrefWidth(120);
-		tC_Valor_Anterior.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Valor_Atual
-				.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Double>("valorAtual"));
-		tC_Valor_Atual.setPrefWidth(120);
-		tC_Valor_Atual.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Diferenca.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Double>("diferenca"));
-		tC_Diferenca.setPrefWidth(120);
-		tC_Diferenca.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Percentual.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Double>("percentual"));
-		tC_Percentual.setPrefWidth(80);
-		tC_Percentual.setSortType(TableColumn.SortType.DESCENDING);
-		tC_Inscricao
-				.setCellValueFactory(new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Inscricao>("id_Inscricao"));
-		tC_Inscricao.setPrefWidth(120);
-		tC_Inscricao.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Data_Hora.setCellValueFactory(
-				new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Calendar>("ultimaAtualizacao"));		
-		tC_Data_Hora.setPrefWidth(130);
-		tC_Data_Hora.setSortType(TableColumn.SortType.ASCENDING);
-		tC_Responsavel.setCellValueFactory(
-				new PropertyValueFactory<ProtocolosdeServicos_Detalhe, Pessoa>("id_Pessoa_Registro"));
-		tC_Responsavel.setPrefWidth(250);	
-		tC_Responsavel.setSortType(TableColumn.SortType.ASCENDING);
-		tV_ProtServicos_Detalhe.getSortOrder().add(tC_Percentual);
-					
+		} else {
+			pd.setDiferenca(0);
+			pd.setEnum_Aux_Comparativos_Resultados(Enum_Aux_Comparativos_Resultados.NAO_AVALIADO);
 		}
-	
-		
+		if (pd.getValorAnt() > 0)
+			pd.setPercentual((pd.getDiferenca() / pd.getValorAnt()));
+		else
+			pd.setPercentual(0);
+		return pd;
+	}
 
+	public Inscricao_Historico_Detalhe verificaSeInscHisotircoExiste(Inscricao_Historico_Detalhe iH) {
+		Inscricao_Historico_DetalheDAO iDAO = new Inscricao_Historico_DetalheDAO();
+		iH = iDAO.verificaSeExiste(iH);
+		return iH;
+	}
+
+	public void sucesso() {
+		lb_Titulo_Tela.setTextFill(Color.web("#0a7cdf"));
+		bt_Fechar.setVisible(true);
+		bt_Fechar.setDisable(false);
+
+		if (ProtocoloController_ControlesGerais_A.isOk() && ProtocoloController_ControlesGerais_A.isFinalizado())
+			lb_Titulo_Tela.setText("ETAPA DE COMPARAÇÕES: Finalizada com Sucesso!!!");
+		else {
+			lb_Titulo_Tela.setTextFill(Color.web("#ff0000"));
+			lb_Titulo_Tela.setText("ETAPA DE COMPARAÇÕES: NÃO FOI REALIZADA. ERRO!");
+		}
+	}
+
+	public void falha() {
+		ProtocoloController_ControlesGerais_A.setFinalizado(false);
+		ProtocoloController_ControlesGerais_A.setOk(false);
+		bt_Fechar.setVisible(true);
+		bt_Fechar.setDisable(false);
+		pBar = new ProgressBar(0);
+		pBI = new ProgressIndicator(0);
+		ProtocoloController_ControlesGerais_A.setOk(false);
+		ProtocoloController_ControlesGerais_A.setFinalizado(false);
+		ProtocoloController_ControlesGerais_A.setTextoResposta("FALHA: Ao tentar realizar comparações");
+		lb_Titulo_Merge.setText(ProtocoloController_ControlesGerais_A.getTextoResposta());
+	}
+
+	protected void fechatela() {
+		Stage stage = (Stage) bt_Fechar.getScene().getWindow();
+		stage.close();
+	}
 }

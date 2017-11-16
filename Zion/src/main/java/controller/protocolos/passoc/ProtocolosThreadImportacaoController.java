@@ -15,26 +15,30 @@ import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import util.Utilidades;
 
-public class ProtocolosThreadImportacaoController extends ProtocolosThreadImportacaoController_Metodos_A implements Initializable {
+public class ProtocolosThreadImportacaoController extends ProtocolosThreadImportacaoController_Metodos_A
+		implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		lb_Etapas.setText(ProtocoloController_ControlesGerais_A.getSequencia());
 		inicializaEventos();
 		bt_Fechar.setVisible(false);
 		bt_Fechar.setDisable(true);
-		GeraListadeInscricoes(ProtocoloController_ControlesGerais_A.getAno(), ProtocoloController_ControlesGerais_A.getnLista());
+		GeraListadeInscricoes(ProtocoloController_ControlesGerais_A.getAno(),
+				ProtocoloController_ControlesGerais_A.getnLista());
 	}
+
 	public boolean GeraListadeInscricoes(int anoPar, int nLista) {
 		boolean retorno = true;
 		ProtocoloController_ControlesGerais_A.setOk(false);
 		ProtocoloController_ControlesGerais_A.setFinalizado(false);
 		ProtocoloController_ControlesGerais_A.setTextoResposta("");
-		
-		
+
 		Task<Void> task = new Task<Void>() {
 			@Override
 			public Void call() throws Exception {
 				int i = 1;
 				String texto = "";
+
 				updateMessage("Aguarde...");
 				Workbook workbook = retornaWorkbook();
 				if (workbook == null) {
@@ -50,7 +54,7 @@ public class ProtocolosThreadImportacaoController extends ProtocolosThreadImport
 				updateMessage(texto);
 				while (rowIterator.hasNext()) {
 					Row row = rowIterator.next();
-					if (!formataLista(row, anoPar, totLinha,ProtocoloController_ControlesGerais_A.getnLista())) {
+					if (!formataLista(row, anoPar, totLinha, ProtocoloController_ControlesGerais_A.getnLista(), i)) {
 						updateMessage(ProtocoloController_ControlesGerais_A.getTextoResposta());
 						ProtocoloController_ControlesGerais_A.setOk(false);
 						ProtocoloController_ControlesGerais_A.setFinalizado(false);

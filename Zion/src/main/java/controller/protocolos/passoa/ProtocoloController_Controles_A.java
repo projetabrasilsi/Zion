@@ -17,12 +17,16 @@ import model.entities.Inscricao;
 import model.entities.Pessoa;
 import model.entities.ProtocolosdeServicos_Detalhe;
 import model.enums.Enum_Aux_Comparativos_Resultados;
+import model.enums.Enum_Aux_Status_Consulta;
+import model.enums.Enum_Aux_Tipo_Conferencia;
 
 public class ProtocoloController_Controles_A extends ProtocoloController_Controles_B {
-
-	// controles gerais
 	@FXML
 	protected AnchorPane aPane = new AnchorPane();
+	@FXML
+	protected Group group_Table = new Group();
+	
+	
 	@FXML
 	protected Group group_Pessoas = new Group();
 	@FXML
@@ -45,22 +49,25 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	@FXML
 	protected TableColumn<ProtocolosdeServicos_Detalhe, Double> tC_Percentual = new TableColumn<>("Percentual");
 	@FXML
-	protected TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Comparativos_Resultados> tC_Resultado = new TableColumn<>("Resultado");
+	protected TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Comparativos_Resultados> tC_Resultado = new TableColumn<>(
+			"Resultado");
+	protected TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Status_Consulta> tC_StatusConsulta = new TableColumn<>(
+			"Resultado");
+	
+	protected TableColumn<ProtocolosdeServicos_Detalhe, Enum_Aux_Tipo_Conferencia> tC_TipoConferencia = new TableColumn<>(
+			"Conferencia");
+	
 	@FXML
-    protected ComboBox<Enum_Aux_Comparativos_Resultados> cB_FilterField = new ComboBox<Enum_Aux_Comparativos_Resultados>();
-    @FXML
-    protected ObservableList<ProtocolosdeServicos_Detalhe> filteredData = FXCollections.observableArrayList();
-    @FXML
-    protected ScrollBar sB =  new ScrollBar();
-    
-    
-    
-    
-    
-    
+	protected TableColumn<String, String> tC_Ordem = new TableColumn<>(
+			"Resultado");
 	
-    
 	
+	@FXML
+	protected ComboBox<Enum_Aux_Comparativos_Resultados> cB_FilterField = new ComboBox<Enum_Aux_Comparativos_Resultados>();
+	@FXML
+	protected ObservableList<ProtocolosdeServicos_Detalhe> filteredData = FXCollections.observableArrayList();
+	@FXML
+	protected ScrollBar sB = new ScrollBar();
 	@FXML
 	protected ObservableList<ProtocolosdeServicos_Detalhe> ProtocolosdeServicos_DetalheObsList = FXCollections
 			.observableArrayList();
@@ -80,7 +87,6 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	protected Button bt_Proximo = new Button();
 	@FXML
 	protected Button bt_Relatorio_Analitico = new Button();
-	
 	@FXML
 	protected Button bt_Relatorio_Sintetico = new Button();
 	@FXML
@@ -120,161 +126,8 @@ public class ProtocoloController_Controles_A extends ProtocoloController_Control
 	@FXML
 	protected Label lb_Total_Invalidado_Value = new Label();
 	@FXML
-	protected Label lb_Titulo = new Label();
+	protected Label lb_Classificacoes = new Label();
 	@FXML
-	protected Label lb_Escolha_Restricao_Value = new Label();
-	@FXML
-	protected Label lb_Tipo_Servico_Value = new Label();
-	@FXML
-	protected Label lb_Classificacao = new Label();
-	@FXML
-	protected Label lb_Classificacao_Value = new Label();
-	@FXML
-	protected Label lb_Progresso = new Label();
-	@FXML
-	protected Label lb_Duracao = new Label();
-	@FXML
-	protected Label lb_Duracao_Value = new Label();
-	@FXML
-	protected Label lb_nTotalReg_Value = new Label();
-	@FXML
-	protected Label lb_nRegAnt_Value = new Label();
-	@FXML
-	protected Label lb_nRegAtual_Value = new Label();
-	@FXML
-	protected Label lb_vlTot_Value = new Label();
-	@FXML
-	protected Label lb_vlTotAnt_Value = new Label();
-	@FXML
-	protected Label lb_vlTotAtual_Value = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAnt_Value = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAtual_Value = new Label();
-	@FXML
-	protected Label lb_nRegPermanentes_Value = new Label();
-	@FXML
-	protected Label lb_vlTotSomenteAnt_Value = new Label();
-	@FXML
-	protected Label lb_vlTotSomenteAtual_Value = new Label();
-	@FXML
-	protected Label lb_vlTotPermanentes_Value = new Label();
-	@FXML
-	protected Label lb_nRegAumentouValor_Value = new Label();
-	@FXML
-	protected Label lb_nRegDiminuiValor_Value = new Label();
-	@FXML
-	protected Label lb_nRegPermaneceuValor_Value = new Label();
-	@FXML
-	protected Label lb_nRegAnt1111 = new Label();
-	@FXML
-	protected Label lb_nRegAtual_Value11 = new Label();
-	@FXML
-	protected Label lb_nRegAnt_Value11 = new Label();
-	@FXML
-	protected Label lb_nTotalReg_Value11 = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAntPerc_Value = new Label();
-	@FXML
-	protected Label lb_PermanenciaPerc_Value = new Label();
-	@FXML
-	protected Label lb_PermanenciaFinalPerc_Value = new Label();
+	protected Label lb_Sub_Classificacoes = new Label();
 	
-	@FXML
-	protected Label lb_Rolagem = new Label();
-	
-	
-
-	@FXML
-	protected Label lb_nRegAntPerc_Value = new Label();
-	@FXML
-	protected Label lb_nTotalRegPerc_Value = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAtualPerc_Value = new Label();
-	@FXML
-	protected Label lb_nRegAtualPerc_Value = new Label();
-	@FXML
-	protected Label lb_Permanencia_Value = new Label();
-	@FXML
-	protected Label lb_Crescimento_Value = new Label();
-	@FXML
-	protected Label lb_nRetencao_Value = new Label();
-	@FXML
-	protected Label lb_CrescimentoPerc_Value = new Label();
-	@FXML
-	protected Label lb_nRetencaoPerc_Value = new Label();
-	@FXML
-	protected Label lb_nRegAnt = new Label();
-	@FXML
-	protected Label lb_nRegAtualExistentenoAnt = new Label();
-	@FXML
-	protected Label lb_nRegAtual = new Label();
-	@FXML
-	protected Label lb_nRegAumentouValor = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAnterior = new Label();
-	@FXML
-	protected Label lb_nRegSomenteAtual = new Label();
-	@FXML
-	protected Label lb_nRegDiminuiValor = new Label();
-	@FXML
-	protected Label lb_nRegPermaneceuValor = new Label();
-	@FXML
-	protected Label lb_nTotalReg = new Label();
-
-	@FXML
-	protected Label lb_nRegAnt11 = new Label();
-	@FXML
-	protected Label lb_nRegAnt111 = new Label();
-	@FXML
-	protected Label lb_nRegAnt1 = new Label();
-	@FXML
-	protected Label lb_VlTotAnt_Value = new Label();
-	@FXML
-	protected Label lb_VlTotSomenteAtual_Value = new Label();
-	@FXML
-	protected Label lb_VlTotSomenteAnt_Value = new Label();
-	@FXML
-	protected Label lb_VlTotPermaneceu_Value = new Label();
-	
-	@FXML
-	protected Label lb_VlTotAumentouValor_Value = new Label();
-	
-	@FXML
-	protected Label lb_VlTotDiminuiValor_Value = new Label();
-	@FXML
-	protected Label lb_VlTotPermaneceuValor_Value = new Label();
-	@FXML
-	protected Label lb_DifInflacao_Value = new Label();
-	@FXML
-	protected Label lb_DifDeflanflacao_Value = new Label();
-
-	@FXML
-	protected Label lb_CarteiraDiferencaInflacao = new Label();
-	@FXML
-	protected Label lb_CarteiraDiferencaDeflacao = new Label();
-	@FXML
-	protected Label lb_CarteiraClientesNovos = new Label();
-	@FXML
-	protected Label lb_CarteiraClientesBaixados = new Label();
-	@FXML
-	protected Label lb_CarteiraResultadoA = new Label();
-	@FXML
-	protected Label lb_CarteiraResultadoB = new Label();
-	@FXML
-	protected Label lb_CarteiraResultadoFinal = new Label();
-	@FXML
-	protected Label lb_CarteiraResultadoPercentualFinal = new Label();
-	@FXML
-	
-	protected Label lb_nRegDiminuiValorPerc_Value = new Label();
-	
-	@FXML
-	protected Label lb_nRegAumentouValorPerc_Value = new Label();
-	@FXML
-	protected Label lb_nRegDiminuiuValorPerc_Value = new Label();
-					 
-	
-	protected Label lb_nRegPermaneceuValorPerc_Value = new Label();
-
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="aPane" maxHeight="454.0" maxWidth="701.0" prefHeight="287.0" prefWidth="496.0" stylesheets="@jmetro/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.protocolos.passoe.servicos.iptu.conferenciadebitos.ProtocolosThreadIptuConferenciaDebitos">
+   <children>
+      <Button fx:id="bt_Fechar" layoutX="14.0" layoutY="246.0" mnemonicParsing="false" text="Fechar" />
+      <Label fx:id="lb_Etapas" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="188.0" prefHeight="51.0" prefWidth="712.0" text="Etapa 3/3" textAlignment="CENTER" textFill="#05a623" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <ProgressIndicator fx:id="pBI" blendMode="DARKEN" layoutX="14.0" layoutY="35.0" prefHeight="55.0" prefWidth="694.0" progress="0.0" />
+      <ProgressBar fx:id="pBar" layoutY="10.0" prefHeight="18.0" prefWidth="718.0" progress="0.0" />
+      <Label fx:id="lb_Titulo_Merge" alignment="CENTER" contentDisplay="CENTER" layoutY="155.0" prefHeight="51.0" prefWidth="718.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_Titulo_Tela" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="104.0" prefHeight="41.0" prefWidth="712.0" text="Início" textAlignment="CENTER" textFill="#a80505" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
